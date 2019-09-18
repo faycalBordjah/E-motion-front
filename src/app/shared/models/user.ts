@@ -1,17 +1,18 @@
 export class User {
-  readonly id: string;
-  nom: string;
-  prenom: string;
-  dateNaissance: Date;
-  numRue: number;
-  nomRue: string;
-  voie: string;
-  ville: string;
+
+  readonly idUser: string;
+  name: string;
+  lastName: string;
+  bearth: Date;
+  num: number;
+  street: string;
+  lane: string;
+  town: string;
   codePostal: number;
-  telephone: string;
-  mail: string;
+  phone: string;
+  email: string;
   password: string;
-  numPermis: string;
+  permit: string;
 
   constructor() {}
 }
