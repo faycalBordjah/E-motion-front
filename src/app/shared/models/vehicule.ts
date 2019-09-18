@@ -1,20 +1,19 @@
-import { TypeVehicule } from './type-vehicule.enum';
-import { CategorieVehicule } from './categorie-vehicule.enum';
-
 export class Vehicule {
-  readonly id: string;
-  modele: string;
-  marque: string;
-  type: TypeVehicule;
-  couleur: string;
-  numSerie: string;
-  immatriculation: string;
-  disponible: boolean;
-  dateAchat: Date;
-  prixAchat: number;
-  nbPlace: number;
-  kilometrage: number;
-  etat: string[];
-  categorie: CategorieVehicule;
+
+  readonly idVehicule: string;
+  model: string;
+  mark: string;
+  type: string;
+  categorie: string;
+  color: string;
+  serialNumber: string;
+  registering: string;
+  available: boolean;
+  purchaseDate: Date;
+  purchasePrice: number;
+  placeNumber: number;
+  kilometers: number;
+  state: string[];
+
   constructor() {}
 }
