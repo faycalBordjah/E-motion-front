@@ -6,7 +6,6 @@ export class User {
   bearth: Date;
   num: number;
   street: string;
-  lane: string;
   town: string;
   zipCode: number;
   phone: string;
