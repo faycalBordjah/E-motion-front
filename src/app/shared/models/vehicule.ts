@@ -1,4 +1,5 @@
 import { TypeVehicule } from './type-vehicule.enum';
+import { CategorieVehicule } from './categorie-vehicule.enum';
 
 export class Vehicule {
   readonly id: string;
@@ -14,6 +15,6 @@ export class Vehicule {
   nbPlace: number;
   kilometrage: number;
   etat: string[];
-
+  categorie: CategorieVehicule;
   constructor() {}
 }
