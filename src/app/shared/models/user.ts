@@ -1,4 +1,5 @@
 export class User {
+  readonly id: string;
   nom: string;
   prenom: string;
   dateNaissance: Date;
