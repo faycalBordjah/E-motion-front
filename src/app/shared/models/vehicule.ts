@@ -2,7 +2,7 @@ export class Vehicule {
 
   readonly idVehicule: string;
   model: string;
-  mark: string;
+  brand: string;
   type: string;
   categorie: string;
   color: string;
