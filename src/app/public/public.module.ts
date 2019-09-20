@@ -1,15 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { HomeModule } from './home/home.module';
+import { SharedModule } from '../shared/shared.module';
+import { PublicRoutingModule } from './public-routing.module';
 import { LoginModule } from './login/login.module';
+import { RegisterModule } from './register/register.module';
 
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
+    SharedModule,
+    PublicRoutingModule,
     HomeModule,
-    LoginModule
+    LoginModule,
+    RegisterModule
   ]
 })
 export class PublicModule { }
