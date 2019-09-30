@@ -15,3 +15,42 @@ div.float-right:before {
 a.navbar-brand {
   background-color: white;
 }
+.navbar-expand {
+  justify-content: space-around;
+}
+#navbarMain {
+  flex-grow: 0 !important;
+}
+.btn-profil {
+  width: 3.80rem;
+  height: 3.80rem;
+}
+
+.hexagon {
+  position: relative;
+  width: 80px;
+  height: 46.19px;
+  background-color: rgb(132,173,122);
+  opacity: 0.50;
+  margin: 23.09px 0;
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+}
+
+.hexagon:before {
+  bottom: 100%;
+  border-bottom: 23.09px solid rgb(132,173,122);
+}
+
+.hexagon:after {
+  top: 100%;
+  width: 0;
+  border-top: 23.09px solid rgb(132,173,122);
+}

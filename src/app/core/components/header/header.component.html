@@ -1,40 +1,101 @@
-<nav class="navbar navbar-expand  py-5 px-0 mb-0" style="background-color: rgb(96, 206, 70)">
-    <a class="navbar-brand py-0 px-3" style="background-color: green"></a>
+<nav class="navbar navbar-expand  py-5 px-0 mb-0" style="background-color: rgb(96, 206, 70)" *ngIf="role === 'anonyme'">
+  <a class="navbar-brand py-0 px-3" style="background-color: green"></a>
 </nav>
+<nav class="navbar navbar-expand py-3 px-0" *ngIf="role === 'user' || role === 'admin'" style="background-color: rgb(96, 206, 70)">
+  <div class="hexagon">
+      <div>
+          <a class="dropdown-item" style="padding: 0.75rem 1.5rem; font-size: 0.8125rem;" [routerLinkActive]="['active']" [routerLink]="'profil'">Profil</a>
+          <!--<a class="dropdown-item" style="padding: 0.75rem 1.5rem; font-size: 2.7rem;" [routerLinkActive]="['active']" [routerLink]="'profil'"><i class="fas fa-user"></i></a>-->
+      </div>
+  </div>
+  <!--<button type="button" class="btn btn-light btn-profil" [routerLinkActive]="['active']" [routerLink]="'profil'">Profil</button>-->
+</nav>
+
 <nav class="navbar navbar-expand navbar-light bg-light py-0 px-0 mb-0">
-    <a class="navbar-brand py-0 px-3" href="/home" style="background-color: white">
-      <img width="150px" [src]="urlLogo" />
-    </a>
-    <div class="float-left collapse navbar-collapse" id="navbarMain">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <h5 class="mb-0 text-black text-italic nav-link"><span id="appTitle" [innerText]="appTitle"></span></h5>
-        </li>
+  <a class="navbar-brand py-0 px-3" href="#" style="background-color: white">
+    <img width="150px" [src]="urlLogo" />
+  </a>
+  <div class="float-left collapse navbar-collapse pr-3" id="navbarMain">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <h5 class="mb-0 text-black text-italic nav-link"><span id="appTitle" [innerText]="appTitle"></span></h5>
+      </li>
+    </ul>
+  </div>
+  <div class="float-left py-3 px-3 pr-3 pl-3">
+    <span class="navbar-text text-black">
+        <ul class="navbar-nav mr-auto">
+          <li id="nav-profil" class="nav-item pr-3" *ngIf="role === 'user' || role === 'admin'">
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'profil'">Profil</button>
+            <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'profil'">Profil</a>-->
+          </li>
+          <li id="nav-accueil" class="nav-item pr-3">
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</button>
+            <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
+          </li>
+          <li id="nav-gestionnaire" class="nav-item pr-3" *ngIf="role === 'admin'">
+            <div class="dropdown">
+              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Gestionnaire
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button class="dropdown-item" type="button" [routerLink]="'register'">Utilisateurs</button>
+                  <button class="dropdown-item" type="button" [routerLink]="'vehicules'">Vehicules</button>
+                  <button class="dropdown-item" type="button" [routerLink]="'reservations'">Réservations</button>
+              </div>
+            </div>
+          </li>
+          <li id="nav-location" class="nav-item pr-3">
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'location'">Trouver une location</button>
+            <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
+          </li>
+        </ul>
+    </span>
+  </div>
+  <div class="float-center py-3 px-3 pl-3">
+    <span class="navbar-text text-black">
+      <ul class="navbar-nav mr-auto" style="align-items: center">
+        <li id="nav-recherche" class="nav-item">
+            <form class="form-inline" >
+              <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
+                aria-label="Search">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </form>
+          </li>
       </ul>
-    </div>
-    <div class="float-right py-3 px-3 pr-5">
+    </span>
+  </div>
+  <div class="float-center pr-2">
       <span class="navbar-text text-black">
-          <ul class="navbar-nav mr-auto">
-            <li id="nav-accueil" class="nav-item">
-              <a class="nav-link"
-                [routerLinkActive]="['active']"
-                [routerLink]="'home'">Accueil</a>
+        <ul class="navbar-nav mr-auto">
+            <li id="nav-connexion" class="nav-item" *ngIf="role === 'anonyme'">
+                <div class="btn-group">
+                  <div class="dropdown">
+                      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Connexion
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-right">
+                          <form class="px-4 py-3">
+                            <div class="form-group">
+                              <label for="exampleDropdownFormEmail2">Adresse email</label>
+                              <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
+                            </div>
+                            <div class="form-group">
+                              <label for="exampleDropdownFormPassword2">Mot de passe</label>
+                              <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Sign in</button>
+                          </form>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" [routerLink]="'register'">Vous n'avez pas encore de compte ?<br>Inscrivez-vous !</a>
+                      </div>
+                  </div>
+                </div>
             </li>
-            <li id="nav-connexion" class="nav-item">
-              <a class="nav-link"
-                [routerLinkActive]="['active']"
-                [routerLink]="'connexion'">Connexion</a>
-            </li>
-          </ul>
+          <li id="nav-deconnexion" class="nav-item" *ngIf="role === 'user' || role === 'admin'">
+              <button type="button" class="btn btn-light">Déconnexion</button>
+          </li>
+        </ul>
       </span>
     </div>
-    <div class="float-right pr-5">
-        <span class="navbar-text text-black">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <span>Barre de rechercher</span>
-                </li>
-            </ul>
-        </span>
-      </div>
 </nav>
