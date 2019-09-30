@@ -15,6 +15,9 @@ export class HeaderComponent {
   @Input()
   urlLogo: string;
 
+  @Input()
+  role: string;
+
   constructor() { }
 
   toggleNavbar() {
