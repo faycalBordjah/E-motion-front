@@ -10,5 +10,6 @@ export class AppComponent {
   appTitle = AppConstants.appTitle;
   urlLogo = AppConstants.assetLogoPath;
   yearNow = new Date().getFullYear().toString();
+  role = 'admin';
 
 }
