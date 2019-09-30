@@ -12,4 +12,12 @@ export class AppConstants {
     return 'e-Motion spécialiste de location de voitures électriques';
   }
 
+  public static get apiUrl(): string {
+    return 'http://localhost:8080/emotion/api';
+  }
+
+  public static get api_User_Url(): string {
+    return 'http://localhost:8080/emotion/api/user';
+  }
+
 }
