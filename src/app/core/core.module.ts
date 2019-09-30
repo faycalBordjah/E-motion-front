@@ -18,8 +18,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     HttpClientModule,
     RouterModule,
-    PublicModule,
-    ProtectedModule
+    PublicModule
   ],
   exports: [HeaderComponent, FooterComponent]
 })
