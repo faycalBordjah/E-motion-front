@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { VehiculeListComponent } from './vehicule-list/vehicule-list.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [VehiculeListComponent],
   imports: [
     SharedModule
   ]
