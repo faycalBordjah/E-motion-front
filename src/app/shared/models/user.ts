@@ -3,7 +3,7 @@ export class User {
   readonly idUser: string;
   firstName: string;
   lastName: string;
-  bearth: Date;
+  birth: Date;
   num: number;
   street: string;
   town: string;
