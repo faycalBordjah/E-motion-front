@@ -33,20 +33,11 @@
               <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</button>
             <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
           </li>
-          <li id="nav-gestionnaire" class="nav-item pr-3" *ngIf="role === 'admin'">
-            <div class="dropdown">
-              <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Gestionnaire
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <button class="dropdown-item" type="button" [routerLink]="'register'">Utilisateurs</button>
-                  <button class="dropdown-item" type="button" [routerLink]="'vehicules'">Vehicules</button>
-                  <button class="dropdown-item" type="button" [routerLink]="'reservations'">Réservations</button>
-              </div>
-            </div>
+          <li id="nav-gestion" class="nav-item pr-3" *ngIf="role === 'admin'">
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'gestion'">Administration</button>
           </li>
           <li id="nav-location" class="nav-item pr-3">
-              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'location'">Trouver une location</button>
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'location'">Location</button>
             <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
           </li>
         </ul>

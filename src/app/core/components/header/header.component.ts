@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { Vehicule } from 'src/app/shared/models/vehicule';
+import { subtract } from 'ngx-bootstrap/chronos/public_api';
 
 @Component({
   selector: 'app-header',
@@ -18,10 +20,16 @@ export class HeaderComponent {
   @Input()
   role: string;
 
+  @Input()
+  vehicules: Vehicule[];
+
   constructor() { }
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
 
+  rootUtilisateur() {
+
+  }
 }
