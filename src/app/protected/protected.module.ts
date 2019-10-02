@@ -5,12 +5,16 @@ import { LocationModule } from '../protected/location/location.module';
 import { FactureModule } from '../protected/facture/facture.module';
 import { VehiculeModule } from '../protected/vehicule/vehicule.module';
 import { ProtectedRoutingModule } from './protected-routing.module';
+import { GestionModule } from './gestion/gestion.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     SharedModule,
     ProtectedRoutingModule,
+    GestionModule,
     UserModule,
     LocationModule,
     FactureModule,

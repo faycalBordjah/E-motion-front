@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Vehicule } from 'src/app/shared/models/vehicule';
 
 @Component({
   selector: 'app-vehicule-list',
@@ -9,11 +8,9 @@ import { Vehicule } from 'src/app/shared/models/vehicule';
 export class VehiculeListComponent implements OnInit {
 
   @Input()
-  vehicules: Vehicule[];
+  vehicules;
 
-  constructor() {
-    console.log(JSON.stringify(this.vehicules));
-   }
+  constructor() { }
 
   ngOnInit() {
   }
