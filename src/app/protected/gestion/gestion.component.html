@@ -1,0 +1,26 @@
+<div class="container-fluid">
+  <div class="row flex-xl-nowrap">
+    <div class="col-12 col-lg-2 p-0" style="border-right: 1px solid rgba(0, 0, 0, 0.1);">
+      <div class="d-lg-block my-3 collapse sidebar show">
+        <h4 class="bd-title px-3 mb-4">Accès Admin</h4>
+        <div class="list-group list-group-flush">
+          <a [routerLinkActive]="['active']"
+            [routerLink]="'utilisateurs'"
+            class="list-group-item list-group-item-action py-3">
+            &nbsp;Gestion Utilisateurs</a>
+          <a [routerLinkActive]="['active']"
+            [routerLink]="'vehicules'"
+            class="list-group-item list-group-item-action py-3">
+            Gestion Véhicules</a>
+          <a [routerLinkActive]="['active']"
+            [routerLink]="'locations'"
+            class="list-group-item list-group-item-action py-3">
+            Gestion Locations</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-10">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

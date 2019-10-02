@@ -9,9 +9,9 @@ export class User {
   town: string;
   zipCode: number;
   phone: string;
-  email: string;
+  mail: string;
   password: string;
-  permit: string;
+  permitNum: string;
 
   constructor() {}
 }

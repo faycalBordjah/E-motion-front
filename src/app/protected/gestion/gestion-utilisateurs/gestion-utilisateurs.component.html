@@ -1,0 +1,36 @@
+<header class="bg-light pt-3 pb-md-3 px-3 px-lg-3 d-flex d-md-block align-items-center title border-bottom">
+  <h4 class="mb-2 mr-auto mr-md-none bd-title">Gestionnaire des Utilisateurs</h4>
+</header>
+<main role="main" class="mt-3">
+  <div class="card">
+        <app-utilisateurs-list [utilisateurs]="utilisateurs"></app-utilisateurs-list>
+    <ng-template #loadingParams>
+        <div class="m-4 alert alert-primary" role="alert">
+          Chargement ...
+        </div>
+    </ng-template>
+  </div>
+  <div class="card mt-2" >
+
+      <div class="card-footer" >
+        <div class="row">
+          <div class="col">
+            Afficher
+            <select >
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+             lignes / page
+          </div>
+          <div class="col">
+
+          </div>
+        </div>
+      </div>
+  </div>
+</main>
