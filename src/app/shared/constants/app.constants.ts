@@ -20,4 +20,9 @@ export class AppConstants {
     return 'http://localhost:8080/emotion/api/user';
   }
 
+  public static get api_vehicule_Url(): string {
+    return 'http://localhost:8080/emotion/api/vehicule';
+  }
+
+
 }
