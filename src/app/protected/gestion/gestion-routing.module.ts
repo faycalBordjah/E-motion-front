@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GestionComponent } from './gestion.component';
 import { GestionVehiculesComponent } from './gestion-vehicules/gestion-vehicules.component';
 import { GestionUtilisateursComponent } from './gestion-utilisateurs/gestion-utilisateurs.component';
+import { GestionLocationsComponent } from './gestion-locations/gestion-locations.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,11 @@ const routes: Routes = [
         path: '',
         redirectTo: 'vehicules',
         pathMatch: 'full'
+      },
+      {
+        path: 'locations',
+        component: GestionLocationsComponent
+
       }
     ]
   }
