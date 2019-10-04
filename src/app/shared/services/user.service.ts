@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserModule } from 'src/app/protected/user/user.module';
 import { AppConstants } from '../constants/app.constants';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,6 +11,8 @@ export class UserService {
 
   public userApi = AppConstants.api_User_Url;
 
+  private headers = new HttpHeaders({'Content-Type': 'application/json'});
+
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<any> {
@@ -18,7 +20,8 @@ export class UserService {
   }
 
   getById(id: string): Observable<any> {
-    return this.http.get<any>(this.userApi + '/' + id);
+    console.log(this.userApi + '/' + id);
+    return this.http.get<any>(this.userApi + '/' + id, {headers: this.headers});
   }
 
 }

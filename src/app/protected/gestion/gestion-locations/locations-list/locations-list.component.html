@@ -1,2 +1,39 @@
-<p>locations-list works!</p>
-<p>Working progress</p>
+<div class="panel panel-primary">
+    <!--<div class="panel-heading"><h3 class="panel-title">List Clients</h3></div>-->
+      <table class="table table-bordered table-striped" style="text-align: center;">
+        <thead>
+          <tr>
+
+            <th class="col-sm-2">Date de debut</th>
+            <th class="col-sm-2">Date de fin</th>
+            <th class="col-sm-2">Heure debut</th>
+            <th class="col-sm-2">Heure fin</th>
+            <th class="col-sm-2">Utilisateur</th>
+            <th class="col-sm-2">Véhicule</th>
+            <th class="col-sm-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let l of locations; let i=index">
+
+            <td>{{ l.startDate }}</td>
+            <td>{{ l.endDate }}</td>
+            <td>{{ l.startHour }}</td>
+            <td>{{ l.endHour }}</td>
+            <td>{{ l.idUser }}</td>
+            <td>{{ l.idVehicule }}</td>
+            <td>{{ l.state }}</td>
+            <td >
+              <button class="btn btn-info btnRounded" [routerLink]="[l.id]"><span class="far fa-edit fa-lg"></span></button>
+              &nbsp;
+              <button class="btn btn-danger btnRounded"><span class="far fa-edit fa-lg"></span></button></td>
+          </tr>
+          <tr>
+            <td colspan="1"></td>
+            <td colspan="4"><button class="btn btn-primary btn-block" [routerLink]="'location-form'">Ajouter</button></td>
+            <td colspan="1"></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
