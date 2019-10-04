@@ -16,6 +16,10 @@ export class AppConstants {
     return 'http://localhost:8080/emotion/api';
   }
 
+  public static get api_authentication_Url(): string {
+    return 'http://localhost:8080/emotion/api/loguser';
+  }
+
   public static get api_User_Url(): string {
     return 'http://localhost:8080/emotion/api/user';
   }
@@ -24,5 +28,8 @@ export class AppConstants {
     return 'http://localhost:8080/emotion/api/vehicle';
   }
 
+  public static get api_location_Url(): string {
+    return 'http://localhost:8080/emotion/api/location';
+  }
 
 }
