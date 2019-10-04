@@ -1,40 +1,36 @@
-<div class="panel panel-primary">
-        <!--<div class="panel-heading"><h3 class="panel-title">List Clients</h3></div>-->
-          <table class="table table-bordered table-striped" style="text-align: center;">
-            <thead>
-              <tr>
-                
-                <th class="col-sm-2">Date de debut</th>
-                <th class="col-sm-2">Date de fin</th>
-                <th class="col-sm-2">Heure debut</th>
-                <th class="col-sm-2">Heure fin</th>
-                <th class="col-sm-2">Utilisateur</th>
-                <th class="col-sm-2">Véhicule</th>
-                <th class="col-sm-2">Actions</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let u of locations ; let i=index">
-                
-                <td>{{ u.startDate }}</td>
-                <td>{{ u.endDate }}</td>
-                <td>{{ u.startHour }}</td>
-                <td>{{ u.endHour }}</td>
-                <td>{{ u.idUser }}</td>
-                <td>{{ u.idVehicule }}</td>
-                <td>{{ u.state }}</td>
-                <td >
-                  <button class="btn btn-info btnRounded" [routerLink]="[u.id]"><span class="far fa-edit fa-lg"></span></button>
-                  &nbsp;
-                  <button class="btn btn-danger btnRounded"><span class="far fa-edit fa-lg"></span></button></td>
-              </tr>
-              <tr>
-                <td colspan="1"></td>
-                <td colspan="4"><button class="btn btn-primary btn-block" [routerLink]="'location-form'">Ajouter</button></td>
-                <td colspan="1"></td>
-              </tr>
-            </tbody>
-          </table>
-      </div>
-      
-      
+<header class="bg-light pt-3 pb-md-3 px-3 px-lg-3 d-flex d-md-block align-items-center title border-bottom">
+    <h4 class="mb-2 mr-auto mr-md-none bd-title">Gestionnaire des Locations</h4>
+  </header>
+  <main role="main" class="mt-3">
+    <div class="card">
+          <app-locations-list [locations]="locations"></app-locations-list>
+      <ng-template #loadingParams>
+          <div class="m-4 alert alert-primary" role="alert">
+            Chargement ...
+          </div>
+      </ng-template>
+    </div>
+    <div class="card mt-2" >
+
+        <div class="card-footer" >
+          <div class="row">
+            <div class="col">
+              Afficher
+              <select >
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select>
+               lignes / page
+            </div>
+            <div class="col">
+
+            </div>
+          </div>
+        </div>
+    </div>
+  </main>
