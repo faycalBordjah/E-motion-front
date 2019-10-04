@@ -19,9 +19,11 @@
           <td>{{ u.phone }}</td>
           <td>{{ u.permitNum }}</td>
           <td >
-            <button class="btn btn-info btnRounded" [routerLink]="[u.id]"><span class="far fa-edit fa-lg"></span></button>
+            <ng-template #tipEdit>Consulter</ng-template>
+            <button class="btn btn-info btnRounded" [routerLink]="[u.id]" [tooltip]="tipEdit" [delay]="500"><span class="far fa-edit fa-lg"></span></button>
             &nbsp;
-            <button class="btn btn-danger btnRounded"><span class="far fa-edit fa-lg"></span></button></td>
+            <ng-template #tipDel>Supprimer</ng-template>
+            <button class="btn btn-danger btnRounded" [tooltip]="tipDel" [delay]="500"><span class="far fa-edit fa-lg"></span></button></td>
         </tr>
         <tr>
           <td colspan="1"></td>
