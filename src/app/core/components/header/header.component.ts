@@ -39,10 +39,9 @@ export class HeaderComponent {
     }
 
     logIn(form: NgForm) {
-        console.log(form);
         this.authService.login(form).subscribe(data => {
                 if (data.status === 200) {
-                    sessionStorage.setItem('username', data.result.username);
+                    sessionStorage.setItem('userId', data.result.Id);
                     this.role = 'admin';
                     console.log(data.result);
                     this.isAuthenticated = true;

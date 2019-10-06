@@ -20,7 +20,5 @@ export class AuthService {
 
     login(loginPayload: any): Observable<any> {
         return this.http.post(this.authApiUrl, loginPayload);
-        //  {headers: this.headers}
-        //  return this.http.post<ApiResponse>(this.authApi + 'token/generate-token', loginPayload);
     }
 }

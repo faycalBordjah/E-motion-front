@@ -67,24 +67,22 @@
                       <div class="dropdown-menu dropdown-menu-right" style="margin-top:5%;padding:0;">
                           <div class="card" style="padding:0;">
                             <form #loginForm="ngForm" (ngSubmit)="logIn(loginForm.value)" class="px-3 py-4">
-                              <table class="tableForm" cellspacing="0" width="100%">
+                              <table class="tableForm">
                                 <tr>
                                   <td>
-                                    <div class="form-group" style="width:100%;">
-                                      <label for="mail" style="margin-bottom:0;"><u id="mail">Adresse email</u> :</label>
-                                      <input type="email" required class="form-control" placeholder="email@example.com" ngModel name="username" #mail style="height: 2.5rem;">
-                                      <!--<div [hidden]="mail.valid" class="alert alert-danger">L'email est obligatoire</div>-->
+                                    <div class="form-group">
+                                      <label for="mail" style="margin-bottom:0;"><u id="mail">Email:</u></label>
+                                      <input  class="form-control" name="mail" type="email"  placeholder="email@example.com" ngModel required>
                                     </div>
                                   </td>
                                 </tr>
                                 <tr>
                                   <td>
-                                    <div fxFlex fxLayout="column">
+                                    <div>
                                       <div class="form-group">
-                                        <label for="password" style="margin-bottom:0;"><u id="password">Mot de passe</u> :</label>
-                                        <input class="form-control" required [type]="hideInput ? 'password': 'text'" ngModel name="password" #password style="display:inline-flex;width:75%;height: 2.5rem;">
-                                        <!--<div [hidden]="password.valid">Le mot de passe est obligatoire</div>-->
-                                        <button class="btn btnHide" type="button" style="width: 25%" (click)="hideInput = !hideInput" >
+                                        <label for="password"><u id="password">Mot de passe: </u></label>
+                                        <input class="form-control" name="password" [type]="hideInput ? 'password': 'text'" ngModel required>
+                                        <button class="btn btnHide" type="button" (click)="hideInput = !hideInput" >
                                           <span>
                                             <i [ngClass]="hideInput ? 'far fa-eye' : 'far fa-eye-slash'"></i>
                                           </span>
