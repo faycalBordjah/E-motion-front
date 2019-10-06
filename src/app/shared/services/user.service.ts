@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  public userApi = AppConstants.api_User_Url;
+  public userApi = AppConstants.api_user_url;
 
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
 

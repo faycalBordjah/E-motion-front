@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicule } from 'src/app/shared/models/vehicule';
-import { VehiculeService } from 'src/app/shared/services/vehicule.service';
+import { Vehicle } from 'src/app/shared/models/vehicle';
+import { VehicleService } from 'src/app/shared/services/vehicle.service';
 import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 
 @Component({
@@ -10,14 +10,14 @@ import { ErrorHandlerService } from 'src/app/shared/services/error-handler.servi
 })
 export class GestionVehiculesComponent implements OnInit {
 
-  vehicules: Vehicule[];
+  vehicules: Vehicle[];
 
-  constructor(private vehiculeService: VehiculeService, private errorService: ErrorHandlerService) { }
+  constructor(private vehiculeService: VehicleService, private errorService: ErrorHandlerService) { }
 
   ngOnInit() {
     this.vehiculeService.getAll().subscribe(data => {
       if (data) {
-        this.vehicules = data.result as Vehicule[];
+        this.vehicules = data.result as Vehicle[];
         console.log(this.vehicules);
         }
       },
