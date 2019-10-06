@@ -1,11 +1,9 @@
 import {Component, Input, Output, EventEmitter, ViewChild, OnInit} from '@angular/core';
 import {Vehicle} from 'src/app/shared/models/vehicle';
-import {subtract} from 'ngx-bootstrap/chronos/public_api';
 import {NgForm, FormGroup} from '@angular/forms';
 import {AuthService} from '../../../shared/services/auth.service';
 import {ErrorHandlerService} from 'src/app/shared/services/error-handler.service';
 import {Router, NavigationEnd} from '@angular/router';
-import {Location} from '@angular/common';
 
 @Component({
     selector: 'app-header',
@@ -22,12 +20,6 @@ export class HeaderComponent {
 
     @ViewChild('loginForm', {static: false}) loginForm: NgForm;
 
-    /*@Output()
-    valueChange = new EventEmitter();*/
-
-   /* @Input()
-    appTitle: string;*/
-
     @Input()
     urlLogo: string;
 
@@ -37,16 +29,13 @@ export class HeaderComponent {
     @Input()
     vehicles: Vehicle[];
 
-    constructor(private authService: AuthService, private errorService: ErrorHandlerService
-        ,       private router: Router, private location: Location) {
+    constructor(private authService: AuthService,
+                private errorService: ErrorHandlerService
+        ,       private router: Router) {
     }
 
     toggleNavbar() {
         this.navbarOpen = !this.navbarOpen;
-    }
-
-    rootUtilisateur() {
-
     }
 
     logIn(form: NgForm) {
