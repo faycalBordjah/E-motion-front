@@ -27,11 +27,11 @@ export class RegisterComponent implements OnInit {
         this.registerForm = this.formBuilder.group({
             firstName: ['', Validators.required],
             lastName: ['', Validators.required],
-            mail: ['', Validators.required, Validators.email],
+            mail: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]],
-            birthDate: ['', Validators.required],
+            birthDay: ['', Validators.required],
             phone: ['', Validators.required],
-            permitNumber: ['', Validators.required],
+            permitNum: ['', Validators.required],
             roadNumber: ['', Validators.required],
             street: ['', Validators.required],
             town: ['', Validators.required],
@@ -50,6 +50,7 @@ export class RegisterComponent implements OnInit {
         }
         this.alertService.clear();
         this.loading = true;
+        console.log(this.registerForm.controls);
         this.userService.register(this.registerForm.value).pipe(first())
             .subscribe(
                 data => {
@@ -62,7 +63,4 @@ export class RegisterComponent implements OnInit {
                 });
     }
 
-    register(form: FormGroup) {
-        console.log(form.controls);
-    }
 }

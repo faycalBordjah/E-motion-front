@@ -44,10 +44,10 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="inputBreath">Date de Naissance</label>
-                    <input type="date" required class="form-control" id="inputBreath" formControlName="birthDate"
-                           [ngClass]="{ 'is-invalid': submitted && getFields.birthDate.errors }">
-                    <div *ngIf="submitted && getFields.birthDate.errors" class="invalid-feedback">
-                        <div *ngIf="getFields.birthDate.errors.required">La date de naissance est obligatoire</div>
+                    <input type="date" required class="form-control" id="inputBreath" formControlName="birthDay"
+                           [ngClass]="{ 'is-invalid': submitted && getFields.birthDay.errors }">
+                    <div *ngIf="submitted && getFields.birthDay.errors" class="invalid-feedback">
+                        <div *ngIf="getFields.birthDay.errors.required">La date de naissance est obligatoire</div>
                     </div>
                 </div>
             </div>
@@ -63,10 +63,10 @@
                 <div class="form-group col-md-4">
                     <label for="inputPermit">Numero de permit</label>
                     <input type="text" required class="form-control" id="inputPermit" placeholder="AZERTYUIOP"
-                           formControlName="permitNumber"
-                           [ngClass]="{ 'is-invalid': submitted && getFields.permitNumber.errors }">
-                    <div *ngIf="submitted && getFields.permitNumber.errors" class="invalid-feedback">
-                        <div *ngIf="getFields.permitNumber.errors.required">Le numero de permis est obligatoire</div>
+                           formControlName="permitNum"
+                           [ngClass]="{ 'is-invalid': submitted && getFields.permitNum.errors }">
+                    <div *ngIf="submitted && getFields.permitNum.errors" class="invalid-feedback">
+                        <div *ngIf="getFields.permitNum.errors.required">Le numero de permis est obligatoire</div>
                     </div>
                 </div>
             </div>
