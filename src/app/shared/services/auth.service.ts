@@ -9,7 +9,7 @@ import {ApiResponse} from '../models/api.response';
 })
 export class AuthService {
 
-    public authApiUrl = AppConstants.api_authentication_url + '/signin';
+    public authApiUrl = AppConstants.api_authentication_url;
 
     private headers = new HttpHeaders({
         'Content-Type': 'application/json'
@@ -19,6 +19,6 @@ export class AuthService {
     }
 
     login(loginPayload: any): Observable<any> {
-        return this.http.post(this.authApiUrl, loginPayload);
+        return this.http.post(this.authApiUrl + '/signin', loginPayload);
     }
 }

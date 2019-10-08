@@ -10,6 +10,8 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   public userApi = AppConstants.api_user_url;
+  public authApi = AppConstants.api_authentication_url;
+
 
   private headers = new HttpHeaders({'Content-Type': 'application/json'});
 
@@ -22,6 +24,10 @@ export class UserService {
   getById(id: string): Observable<any> {
     console.log(this.userApi + '/' + id);
     return this.http.get<any>(this.userApi + '/' + id, {headers: this.headers});
+  }
+
+  register(registerPayload: any): Observable<any> {
+    return this.http.post(this.authApi + '/signup', registerPayload);
   }
 
 }
