@@ -19,7 +19,7 @@
                            formControlName="password" [ngClass]="{ 'is-invalid': submitted && getFields.password.errors }">
                     <div *ngIf="submitted && getFields.password.errors" class="invalid-feedback">
                         <div *ngIf="getFields.password.errors.required">Le mot de passe est obligatoire</div>
-                        <div *ngIf="getFields.mail.errors.minlength">Le mot de passe doit contenir au moins 6 charactères</div>
+                        <div *ngIf="getFields.password.errors.minlength">Le mot de passe doit contenir au moins 6 charactères</div>
                     </div>
                 </div>
             </div>

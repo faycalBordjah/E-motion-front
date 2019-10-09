@@ -10,7 +10,7 @@
             <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
           </li>
           <li id="nav-gestion" class="nav-item pr-3" *ngIf="isAuthenticated && role === 'admin'">
-              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'gestion'">Administration</button>
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'manage'">Administration</button>
           </li>
           <li id="nav-location" class="nav-item pr-3">
               <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'location'">Location</button>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { VehiculeModule } from 'src/app/protected/vehicule/vehicule.module';
+import { VehiculeModule } from 'src/app/protected/vehicle/vehicule.module';
 import { AppConstants } from '../constants/app.constants';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
