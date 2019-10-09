@@ -3,15 +3,15 @@ import { VehiculeModule } from 'src/app/protected/vehicule/vehicule.module';
 import { AppConstants } from '../constants/app.constants';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Vehicule } from '../models/vehicule';
+import { Vehicle } from '../models/vehicle';
 
 
 @Injectable({
   providedIn: VehiculeModule
 })
-export class VehiculeService {
+export class VehicleService {
 
-  public vehiculeApi = AppConstants.api_vehicule_Url;
+  public vehiculeApi = AppConstants.api_vehicle_url;
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class VehiculeService {
     return this.http.get<any>(this.vehiculeApi);
   }
 
-  getById(id: string): Observable<Vehicule> {
+  getById(id: string): Observable<Vehicle> {
     return this.http.get<any>(this.vehiculeApi + '/' + id);
   }
 }

@@ -1,30 +1,7 @@
-<nav class="navbar navbar-expand  py-5 px-0 mb-0" style="background-color: rgb(96, 206, 70)" *ngIf="role === 'anonyme'">
-  <a class="navbar-brand py-0 px-3" style="background-color: green"></a>
-</nav>
-<nav class="navbar navbar-expand py-3 px-0" *ngIf="isAuthenticated" style="background-color: rgb(96, 206, 70)">
-  <div class="hexagon">
-      <div class="vertical-align:middle;">
-        <ng-template #tipProfil>Profil</ng-template>
-          <a class="dropdown-item profilIcon" [tooltip]="tipProfil" [delay]="200" [adaptivePosition]="false"
-          placement="right" [routerLinkActive]="['active']" [routerLink]="'profil'"><i class="fas fa-user-circle" style="font-size: 2.89999999rem; padding-left: 3px;"></i></a>
-          <!--<a class="dropdown-item" style="padding: 0.75rem 1.5rem; font-size: 2.7rem;" [routerLinkActive]="['active']" [routerLink]="'profil'"><i class="fas fa-user"></i></a>-->
-      </div>
-  </div>
-  <!--<button type="button" class="btn btn-light btn-profil" [routerLinkActive]="['active']" [routerLink]="'profil'">Profil</button>-->
-</nav>
-
-
 <nav class="navbar navbar-expand navbar-light bg-light py-0 px-0 mb-0">
   <a class="navbar-brand py-0 px-3" href="#" style="background-color: white">
     <img width="150px" [src]="urlLogo" />
   </a>
-  <div class="float-left collapse navbar-collapse pr-3" id="navbarMain">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <h5 class="mb-0 text-black text-italic nav-link"><span id="appTitle" [innerText]="appTitle"></span></h5>
-      </li>
-    </ul>
-  </div>
   <div class="float-left py-3 px-3 pr-3 pl-3">
     <span class="navbar-text text-black">
         <ul class="navbar-nav mr-auto">
@@ -67,24 +44,22 @@
                       <div class="dropdown-menu dropdown-menu-right" style="margin-top:5%;padding:0;">
                           <div class="card" style="padding:0;">
                             <form #loginForm="ngForm" (ngSubmit)="logIn(loginForm.value)" class="px-3 py-4">
-                              <table class="tableForm" cellspacing="0" width="100%">
+                              <table class="tableForm">
                                 <tr>
                                   <td>
-                                    <div class="form-group" style="width:100%;">
-                                      <label for="mail" style="margin-bottom:0;"><u>Adresse email</u> :</label>
-                                      <input type="email" required class="form-control" placeholder="email@example.com" ngModel name="mail" #mail style="height: 2.5rem;">
-                                      <!--<div [hidden]="mail.valid" class="alert alert-danger">L'email est obligatoire</div>-->
+                                    <div class="form-group">
+                                      <label for="mail" style="margin-bottom:0;"><u id="mail">Email:</u></label>
+                                      <input  class="form-control" name="mail" type="email"  placeholder="email@example.com" ngModel required>
                                     </div>
                                   </td>
                                 </tr>
                                 <tr>
                                   <td>
-                                    <div fxFlex fxLayout="column">
+                                    <div>
                                       <div class="form-group">
-                                        <label for="password" style="margin-bottom:0;"><u>Mot de passe</u> :</label>
-                                        <input class="form-control" required [type]="hideInput ? 'password': 'text'" ngModel name="password" #password style="display:inline-flex;width:75%;height: 2.5rem;">
-                                        <!--<div [hidden]="password.valid">Le mot de passe est obligatoire</div>-->
-                                        <button class="btn btnHide" type="button" style="width: 25%" (click)="hideInput = !hideInput" >
+                                        <label for="password"><u id="password">Mot de passe: </u></label>
+                                        <input class="form-control" name="password" [type]="hideInput ? 'password': 'text'" ngModel required>
+                                        <button class="btn btnHide" type="button" (click)="hideInput = !hideInput" >
                                           <span>
                                             <i [ngClass]="hideInput ? 'far fa-eye' : 'far fa-eye-slash'"></i>
                                           </span>
@@ -116,5 +91,13 @@
           </li>
         </ul>
       </span>
+    </div>
+    <div class="hexagon" *ngIf="isAuthenticated">
+        <div class="vertical-align:middle;">
+            <ng-template #tipProfil>Profile</ng-template>
+            <a class="dropdown-item profilIcon" [tooltip]="tipProfil" [delay]="200" [adaptivePosition]="false"
+               placement="right" [routerLinkActive]="['active']" [routerLink]="'profil'"><i class="fas fa-user-circle" style="font-size: 2.89999999rem; padding-left: 3px;"></i></a>
+            <!--<a class="dropdown-item" style="padding: 0.75rem 1.5rem; font-size: 2.7rem;" [routerLinkActive]="['active']" [routerLink]="'profil'"><i class="fas fa-user"></i></a>-->
+        </div>
     </div>
 </nav>

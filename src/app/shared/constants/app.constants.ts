@@ -1,35 +1,31 @@
 export class AppConstants {
 
-  public static get baseRestUrl(): string {
-    return '/e-motion/rest/';
-  }
+    public static baseUrl = 'http://localhost:8080/emotion/api';
 
-  public static get assetLogoPath(): string {
-    return 'assets/img/logo_emotion.jpg';
-  }
+    public static get asset_logo_path(): string {
+        return 'assets/img/logo_emotion.jpg';
+    }
 
-  public static get appTitle(): string {
-    return 'e-Motion spécialiste de location de voitures électriques';
-  }
+    // Pas besoin de cette variable.
+    /*
+    public static get appTitle(): string {
+      return 'e-Motion voyager sans polluer';
+    }*/
 
-  public static get apiUrl(): string {
-    return 'http://localhost:8080/emotion/api';
-  }
+    public static get api_authentication_url(): string {
+        return this.baseUrl + '/authenticate';
+    }
 
-  public static get api_authentication_Url(): string {
-    return 'http://localhost:8080/emotion/api/loguser';
-  }
+    public static get api_user_url(): string {
+        return this.baseUrl + '/users';
+    }
 
-  public static get api_User_Url(): string {
-    return 'http://localhost:8080/emotion/api/user';
-  }
+    public static get api_vehicle_url(): string {
+        return this.baseUrl + '/vehicles';
+    }
 
-  public static get api_vehicule_Url(): string {
-    return 'http://localhost:8080/emotion/api/vehicle';
-  }
-
-  public static get api_location_Url(): string {
-    return 'http://localhost:8080/emotion/api/location';
-  }
+    public static get api_location_url(): string {
+        return this.baseUrl + '/locations';
+    }
 
 }

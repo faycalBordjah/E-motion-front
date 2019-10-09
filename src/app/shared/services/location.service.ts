@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class LocationService {
 
-  public apiLocation = AppConstants.api_location_Url;
+  public apiLocation = AppConstants.api_location_url;
 
   private headers = new HttpHeaders({
     'Access-Control-Allow-Origin': '*',

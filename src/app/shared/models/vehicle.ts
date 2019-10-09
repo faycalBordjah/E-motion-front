@@ -1,10 +1,10 @@
-export class Vehicule {
+export class Vehicle {
 
-  readonly idVehicule: string;
+  readonly vehicleId: string;
   model: string;
   brand: string;
   type: string;
-  categorie: string;
+  category: string;
   color: string;
   serialNumber: string;
   registering: string;

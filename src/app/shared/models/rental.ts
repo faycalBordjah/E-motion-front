@@ -1,12 +1,12 @@
-export class Location {
+export class Rental {
 
-  readonly idLocation: string;
+  readonly locationId: string;
   startDate: number;
   endDate: number;
   startTime: number;
   endTime: number;
-  readonly idUser: string;
-  readonly idVehicule: string;
+  readonly userId: string;
+  readonly vehicleId: string;
   state: string[];
 
   constructor() {}

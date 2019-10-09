@@ -1,26 +1,24 @@
-import { Injectable } from '@angular/core';
-import { AppConstants } from './../constants/app.constants';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { ApiResponse } from '../models/api.response';
+import {Injectable} from '@angular/core';
+import {AppConstants} from './../constants/app.constants';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {ApiResponse} from '../models/api.response';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
 
-  public authApi = AppConstants.api_authentication_Url;
+    public authApiUrl = AppConstants.api_authentication_url;
 
-  private headers = new HttpHeaders({
-    'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'application/json'
-  });
+    private headers = new HttpHeaders({
+        'Content-Type': 'application/json'
+    });
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+    }
 
-  // pour les test : form avec mail et password
-  login(loginPayload: any): Observable<any> {
-    return this.http.post(this.authApi, loginPayload); //, {headers: this.headers}
-    //return this.http.post<ApiResponse>(this.authApi + 'token/generate-token', loginPayload);
-  }
+    login(loginPayload: any): Observable<any> {
+        return this.http.post(this.authApiUrl + '/signin', loginPayload);
+    }
 }
