@@ -7,7 +7,6 @@ import {FormsModule} from '@angular/forms';
     declarations: [RegisterComponent],
     imports: [
         SharedModule,
-        FormsModule
     ]
 })
 export class RegisterModule {

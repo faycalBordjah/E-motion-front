@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { VehiculeListComponent } from './vehicule/vehicule-list/vehicule-list.component';
+import { VehiculeListComponent } from './vehicle/vehicle-list/vehicule-list.component';
 import { UserListComponent } from './user/user-list/user-list.component';
-import { GestionComponent } from './gestion/gestion.component';
+import { ManageComponent } from './manage/manage.component';
 
 
 const routes: Routes = [
@@ -13,8 +13,8 @@ const routes: Routes = [
     path: 'users', component: UserListComponent
   },
   {
-    path: 'gestion', component: GestionComponent
-    //loadChildren: () => import('./gestion/gestion.module').then(m => m.GestionModule)
+    path: 'manage', component: ManageComponent
+    //loadChildren: () => import('./manage/manage.module').then(m => m.ManageModule)
   },
 ];
 

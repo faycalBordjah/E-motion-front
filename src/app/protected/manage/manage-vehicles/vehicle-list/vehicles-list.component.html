@@ -1,0 +1,47 @@
+<div class="panel panel-primary">
+  <!--<div class="panel-heading"><h3 class="panel-title">List Clients</h3></div>-->
+    <table class="table table-bordered table-striped" style="text-align: center;">
+      <thead>
+        <tr>
+          <th class="col-sm-1">Modèle</th>
+          <th class="col-sm-1">Marque</th>
+          <th class="col-sm-1">Type</th>
+          <th class="col-sm-1">Categorie</th>
+          <th class="col-sm-1">Couleur</th>
+          <th class="col-sm-1">Numérie Série</th>
+          <th class="col-sm-1">Immatriculation</th>
+          <th class="col-sm-1">Disponible</th>
+          <th class="col-sm-1">Nombre place</th>
+          <th class="col-sm-1">Etat</th>
+          <th class="col-sm-2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let v of vehicules; let i=index">
+          <td>{{ v.model }}</td>
+          <td>{{ v.brand }}</td>
+          <td>{{ v.type }}</td>
+          <td>{{ v.category }}</td>
+          <td>{{ v.color }}</td>
+          <td>{{ v.serialNumber }}</td>
+          <td>{{ v.registering }}</td>
+          <td>{{ v.available }}</td>
+          <td>{{ v.placeNumber }}</td>
+          <td>{{ v.state }}</td>
+          <td>
+            <ng-template #tipEdit>Consulter</ng-template>
+            <button class="btn btn-info btnRounded" [routerLink]="[v.id]" [tooltip]="tipEdit" [delay]="500"><span class="far fa-edit fa-lg"></span></button>
+            &nbsp;
+            <ng-template #tipDel>Supprimer</ng-template>
+            <button class="btn btn-danger btnRounded" [tooltip]="tipDel" [delay]="500"><span class="far fa-trash-alt fa-lg"></span></button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="3"></td>
+          <td colspan="6"><button class="btn btn-primary btn-block" [routerLink]="'vehicle-form'">Ajouter</button></td>
+          <td colspan="3"></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
