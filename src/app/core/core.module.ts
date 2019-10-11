@@ -1,12 +1,13 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { PublicModule } from '../public/public.module';
 import { ProtectedModule } from '../protected/protected.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { AlertComponent } from './components/alert/alert.component';
+import { TokenInterceptor } from '../shared/helpers/interceptor';
 
 
 
@@ -15,6 +16,13 @@ import { AlertComponent } from './components/alert/alert.component';
     HeaderComponent,
     FooterComponent,
     AlertComponent
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
   ],
   imports: [
     SharedModule,
