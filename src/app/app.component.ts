@@ -16,6 +16,7 @@ import {AuthService} from './shared/services/auth.service';
 export class AppComponent {
     urlLogo = AppConstants.asset_logo_path;
     yearNow = new Date().getFullYear().toString();
+    isAuthenticated = false;
     role = 'anonyme';
     currentUser: User;
 
@@ -23,7 +24,10 @@ export class AppComponent {
 
     constructor(private vehicleService: VehicleService, private authService: AuthService,
     ) {
-
-        authService.currentUser.subscribe(u => this.currentUser = u);
+       if (this.authService.isLoggedIn() === true) {
+        this.role = 'admin';
+        this.isAuthenticated = true;
+        console.log(this.role);
+       }
     }
 }
