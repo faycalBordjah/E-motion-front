@@ -1,10 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../shared/services/auth.service';
 import {UserService} from '../../../shared/services/user.service';
 import {AlertService} from '../../../shared/services/alert.service';
 import {Router} from '@angular/router';
 import {first} from 'rxjs/operators';
+import { PayLoad } from './../../../shared/models/payload';
 
 @Component({
     selector: 'app-register',
@@ -15,6 +16,7 @@ export class RegisterComponent implements OnInit {
     private registerForm: FormGroup;
     private submitted = false;
     private loading = false;
+    payload: PayLoad = new PayLoad();
 
     constructor(private formBuilder: FormBuilder,
                 private authService: AuthService,
@@ -48,14 +50,20 @@ export class RegisterComponent implements OnInit {
         if (this.registerForm.invalid) {
             return;
         }
+        this.payload.mail = this.registerForm.controls.mail.value;
+        this.payload.password = this.registerForm.controls.password.value;
         this.alertService.clear();
         this.loading = true;
         console.log(this.registerForm.controls);
         this.userService.register(this.registerForm.value).pipe(first())
             .subscribe(
-                data => {
+                dataRegister => {
+                    this.authService.login(this.payload).subscribe(dataLogin => {
+                      this.authService.storeJwtToken(dataLogin.result.token);
+                    });
+
                     this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
+                    this.router.navigate(['home']);
                 },
                 error => {
                     this.alertService.error(error);

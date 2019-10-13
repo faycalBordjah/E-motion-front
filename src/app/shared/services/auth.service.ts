@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AppConstants} from './../constants/app.constants';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {ApiResponse} from '../models/api.response';
-import {User} from '../models/user';
+import { Observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -12,28 +10,37 @@ export class AuthService {
 
     public authApiUrl = AppConstants.api_authentication_url;
 
-    private currentUserSubject: BehaviorSubject<User>;
-    public currentUser: Observable<User>;
-    private headers = new HttpHeaders({
-        'Content-Type': 'application/json'
-    });
+    private readonly JWT_TOKEN = 'JWT_TOKEN';
+
+    private headers = new HttpHeaders(
+      {
+        'Content-Type': 'application/json',
+      });
+
 
     constructor(private http: HttpClient) {
-        this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
-        this.currentUser = this.currentUserSubject.asObservable();
     }
 
-    public get currentUserValue(): User {
-        return this.currentUserSubject.value;
-    }
-
-    login(loginPayload: any): Observable<any> {
-        return this.http.post(this.authApiUrl + '/signin', loginPayload);
+    login(loginPayload): Observable<any> {
+      console.log(loginPayload);
+      return this.http.post(this.authApiUrl + '/signin', loginPayload , {headers: this.headers});
     }
 
     logout() {
-        // remove user from local storage and set current user to null
-        localStorage.removeItem('currentUser');
-        this.currentUserSubject.next(null);
+        // remove user from session storage and set current user to null
+        sessionStorage.removeItem(this.JWT_TOKEN);
     }
+
+    getJwtToken() {
+      return sessionStorage.getItem(this.JWT_TOKEN);
+    }
+
+    isLoggedIn() {
+      return !!this.getJwtToken();
+    }
+
+    storeJwtToken(token: string) {
+      sessionStorage.setItem(this.JWT_TOKEN, token);
+    }
+
 }

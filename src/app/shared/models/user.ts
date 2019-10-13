@@ -12,6 +12,7 @@ export class User {
     mail: string;
     password: string;
     permitNum: string;
+    token?: string;
 
     constructor() {
     }
