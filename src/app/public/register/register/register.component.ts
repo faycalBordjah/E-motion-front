@@ -5,7 +5,7 @@ import {UserService} from '../../../shared/services/user.service';
 import {AlertService} from '../../../shared/services/alert.service';
 import {Router} from '@angular/router';
 import {first} from 'rxjs/operators';
-import { PayLoad } from './../../../shared/models/payload';
+import { LoginPayLoad } from '../../../shared/models/loginPayLoad';
 
 @Component({
     selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     private registerForm: FormGroup;
     private submitted = false;
     private loading = false;
-    payload: PayLoad = new PayLoad();
+    payload: LoginPayLoad = new LoginPayLoad();
 
     constructor(private formBuilder: FormBuilder,
                 private authService: AuthService,
@@ -57,9 +57,10 @@ export class RegisterComponent implements OnInit {
         console.log(this.registerForm.controls);
         this.userService.register(this.registerForm.value).pipe(first())
             .subscribe(
-                dataRegister => {
-                    this.authService.login(this.payload).subscribe(dataLogin => {
-                      this.authService.storeJwtToken(dataLogin.result.token);
+                () => {
+                    this.authService.login(this.payload).subscribe(
+                        dataLogin => {
+                            this.authService.storeJwtToken(dataLogin.result.token);
                     });
 
                     this.alertService.success('Registration successful', true);

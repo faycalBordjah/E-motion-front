@@ -1,4 +1,4 @@
-export class PayLoad {
+export class LoginPayLoad {
 
   mail: string;
   password: string;

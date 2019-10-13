@@ -1,7 +1,7 @@
-import { PayLoad } from './payload';
+import { LoginPayLoad } from './loginPayLoad';
 
 describe('PayLoad', () => {
   it('should create an instance', () => {
-    expect(new PayLoad()).toBeTruthy();
+    expect(new LoginPayLoad()).toBeTruthy();
   });
 });
