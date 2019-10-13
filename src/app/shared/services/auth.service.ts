@@ -1,10 +1,7 @@
 import {Injectable} from '@angular/core';
 import {AppConstants} from './../constants/app.constants';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {BehaviorSubject, Observable, of} from 'rxjs';
-import {ApiResponse} from '../models/api.response';
-import {User} from '../models/user';
-import { Tokens } from '../models/tokens';
+import { Observable} from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -46,7 +43,4 @@ export class AuthService {
       sessionStorage.setItem(this.JWT_TOKEN, token);
     }
 
-    removeJwtToken() {
-      sessionStorage.removeItem(this.JWT_TOKEN);
-    }
 }
