@@ -4,6 +4,7 @@ import {NgForm, FormGroup} from '@angular/forms';
 import {AuthService} from '../../../shared/services/auth.service';
 import {ErrorHandlerService} from 'src/app/shared/services/error-handler.service';
 import {Router, NavigationEnd, ActivatedRoute} from '@angular/router';
+import {AlertService} from '../../../shared/services/alert.service';
 
 @Component({
     selector: 'app-header',
@@ -33,10 +34,11 @@ export class HeaderComponent implements OnInit {
     vehicles: Vehicle[];
 
     constructor(private authService: AuthService,
-                private errorService: ErrorHandlerService
-        ,       private router: Router) {
+                private errorService: ErrorHandlerService,
+                private router: Router,
+                private alertService: AlertService) {
 
-          this.ngOnInit();
+        this.ngOnInit();
     }
 
     toggleNavbar() {
@@ -44,24 +46,21 @@ export class HeaderComponent implements OnInit {
     }
 
     logIn(form: NgForm) {
-        this.authService.login(form).subscribe(data => {
-                if (data.status === 200) {
-                  console.log(data.result);
-                  this.authService.storeJwtToken(data.result.token);
-                  this.role = 'admin';
-                  this.isAuthenticated = true;
-                  this.loginForm.reset();
-                  this.currentUrl = this.router.url;
-                  console.log('currentUrl: ' + this.currentUrl );
-                  this.router.navigate([this.currentUrl]);
-                } else {
-                    this.invalidLogin = true;
-                    alert(data.message);
-                }
+        this.authService.login(form).subscribe(
+            (data) => {
+                console.log(data.result);
+                this.authService.storeJwtToken(data.result.token);
+                this.role = 'admin';
+                this.isAuthenticated = true;
+                this.loginForm.reset();
+                this.currentUrl = this.router.url;
+                console.log('currentUrl: ' + this.currentUrl);
+                this.router.navigate([this.currentUrl]);
             },
             (error) => {
                 console.error(error);
-                this.errorService.handleError(error);
+                this.invalidLogin = true;
+                this.alertService.error(error);
             });
     }
 
@@ -75,9 +74,9 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit(): void {
-      if (this.authService.getJwtToken()) {
+        if (this.authService.getJwtToken()) {
             this.isAuthenticated = true;
-          }
+        }
     }
 
 }
