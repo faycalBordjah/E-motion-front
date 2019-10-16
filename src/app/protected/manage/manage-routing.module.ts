@@ -7,27 +7,26 @@ import { ManageRentalsComponent } from './manage-rentals/manage-rentals.componen
 
 const routes: Routes = [
   {
-    path: 'manage',
+    path: '',
     component: ManageComponent,
     children: [
       {
-        path: 'vehicules',
-        component: ManageVehiclesComponent
+        path: 'locations',
+        component: ManageRentalsComponent
       },
       {
         path: 'utilisateurs',
         component: ManageUsersComponent
       },
       {
-        path: '',
-        redirectTo: 'vehicules',
-        pathMatch: 'full'
+        path: 'vehicules',
+        component: ManageVehiclesComponent
       },
       {
-        path: 'locations',
-        component: ManageRentalsComponent
-
-      }
+        path: '',
+        redirectTo: 'locations',
+        pathMatch: 'full'
+      },
     ]
   }
 ];
