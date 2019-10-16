@@ -11,11 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'users', component: UserListComponent
-  },
-  {
-    path: 'manage', component: ManageComponent
-    //loadChildren: () => import('./manage/manage.module').then(m => m.ManageModule)
-  },
+  }
 ];
 
 @NgModule({
