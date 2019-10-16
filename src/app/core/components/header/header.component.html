@@ -9,7 +9,7 @@
               <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</button>
             <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
           </li>
-          <li id="nav-gestion" class="nav-item pr-3" *ngIf="isAuthenticated && role === 'admin'">
+          <li id="nav-gestion" class="nav-item pr-3" *ngIf="user && role === 'admin' || token && role ==='admin'">
               <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'manage'">Administration</button>
           </li>
           <li id="nav-location" class="nav-item pr-3">
@@ -35,64 +35,18 @@
   <div class="float-center pr-2">
       <span class="navbar-text text-black">
         <ul class="navbar-nav mr-auto">
-            <li id="nav-connexion" class="nav-item" *ngIf="!isAuthenticated">
-                <div class="btn-group">
-                  <div class="dropdown">
-                      <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Connexion
-                      </button>
-                      <div class="dropdown-menu dropdown-menu-right" style="margin-top:5%;padding:0;">
-                          <div class="card" style="padding:0;">
-                            <form #loginForm="ngForm" (ngSubmit)="logIn(loginForm.value)" class="px-3 py-4">
-                              <table class="tableForm">
-                                <tr>
-                                  <td>
-                                    <div class="form-group">
-                                      <label for="mail" style="margin-bottom:0;"><u id="mail">Email:</u></label>
-                                      <input  class="form-control" name="mail" type="email"  placeholder="email@example.com" ngModel required>
-                                    </div>
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    <div>
-                                      <div class="form-group">
-                                        <label for="password"><u id="password">Mot de passe: </u></label>
-                                        <input class="form-control" name="password" [type]="hideInput ? 'password': 'text'" ngModel required>
-                                        <button class="btn btnHide" type="button" (click)="hideInput = !hideInput" >
-                                          <span>
-                                            <i [ngClass]="hideInput ? 'far fa-eye' : 'far fa-eye-slash'"></i>
-                                          </span>
-                                        </button>
-                                        <div *ngIf="invalidLogin" class="error">
-                                          <div>Invalid credentials.</div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </td>
-                                </tr>
-                              </table>
-                              <div style="text-align:center;margin: 0 auto 0 auto">
-                                  <button *ngIf="loginForm.form.valid" type="submit" class="btn btn-card btn-primary"
-                                  [disabled]="!loginForm.form.valid" click="reset()">Connexion</button>
-                              </div>
-                            </form>
-                            <div class="dropdown-divider"></div>
-                            <div style="margin-bottom: 2%;">
-                                <a class="dropdown-item" [routerLink]="'register'">Vous n'avez pas encore de compte ?<br>Inscrivez-vous !</a>
-                            </div>
-                          </div>
-                      </div>
-                  </div>
-                </div>
+            <li id="nav-connexion" class="nav-item" *ngIf="!user && !token">
+                <button class="btn btn-light" type="button" [routerLink]="'connexion'">
+                  Connexion
+                </button>
             </li>
-          <li id="nav-deconnexion" class="nav-item" *ngIf="isAuthenticated">
+          <li id="nav-deconnexion" class="nav-item" *ngIf="user || token">
               <button type="button" (click)="logOut()" class="btn btn-light">Déconnexion</button>
           </li>
         </ul>
       </span>
     </div>
-    <div class="hexagon" *ngIf="isAuthenticated">
+    <div class="hexagon" *ngIf="user || token">
         <div class="vertical-align:middle;">
             <ng-template #tipProfil>Profile</ng-template>
             <a class="dropdown-item profilIcon" [tooltip]="tipProfil" [delay]="200" [adaptivePosition]="false"
