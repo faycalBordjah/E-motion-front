@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { AlertComponent } from './components/alert/alert.component';
 import { TokenInterceptor } from '../shared/helpers/interceptor';
+import { ErrorInterceptor } from '../shared/helpers/error.interceptor';
 
 
 
@@ -22,7 +23,10 @@ import { TokenInterceptor } from '../shared/helpers/interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    { provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true }
   ],
   imports: [
     SharedModule,
