@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../shared/services/auth.service';
 import {UserService} from '../../../shared/services/user.service';
@@ -8,14 +8,15 @@ import {first} from 'rxjs/operators';
 import { LoginPayLoad } from '../../../shared/models/loginPayLoad';
 
 @Component({
-    selector: 'app-register',
-    templateUrl: './register.component.html',
-    styleUrls: ['./register.component.scss']
+    selector: 'app-register-form',
+    templateUrl: './register-form.component.html',
+    styleUrls: ['./register-form.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterFormComponent implements OnInit {
     private registerForm: FormGroup;
     private submitted = false;
     private loading = false;
+
     payload: LoginPayLoad = new LoginPayLoad();
 
     constructor(private formBuilder: FormBuilder,
@@ -55,21 +56,20 @@ export class RegisterComponent implements OnInit {
         this.alertService.clear();
         this.loading = true;
         console.log(this.registerForm.controls);
-        this.userService.register(this.registerForm.value).pipe(first())
-            .subscribe(
-                () => {
-                    this.authService.login(this.payload).subscribe(
-                        dataLogin => {
-                            this.authService.storeJwtToken(dataLogin.result.token);
-                    });
+        this.LogAndAuthenticate(this.payload);
+    }
 
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['home']);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+    LogAndAuthenticate(loadUser: LoginPayLoad) {
+      this.authService.register(this.registerForm.value).subscribe(
+        () => {
+          this.authService.authenticate(loadUser);
+          this.alertService.success('Registration successful', true);
+          this.router.navigate(['home']);
+        },
+        (error) => {
+            this.alertService.error(error);
+            this.loading = false;
+        });
     }
 
 }

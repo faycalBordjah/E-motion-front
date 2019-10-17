@@ -6,6 +6,7 @@ import {VehicleService} from './shared/services/vehicle.service';
 import {UserService} from './shared/services/user.service';
 import {User} from './shared/models/user';
 import {AuthService} from './shared/services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -16,18 +17,15 @@ import {AuthService} from './shared/services/auth.service';
 export class AppComponent {
     urlLogo = AppConstants.asset_logo_path;
     yearNow = new Date().getFullYear().toString();
-    isAuthenticated = false;
-    role = 'anonyme';
-    currentUser: User;
+    user$: Observable<User>;
+    role: string;
+    token$: Observable<string>;
 
-    vehicles: Vehicle[];
-
-    constructor(private vehicleService: VehicleService, private authService: AuthService,
-    ) {
-       if (this.authService.isLoggedIn() === true) {
+    constructor(private authService: AuthService) {
+      this.user$ = this.authService.user$;
+      this.token$ = this.authService.token$;
+      if (this.user$ || this.token$) {
         this.role = 'admin';
-        this.isAuthenticated = true;
-        console.log(this.role);
-       }
+      }
     }
 }

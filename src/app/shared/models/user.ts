@@ -13,6 +13,7 @@ export class User {
     password: string;
     permitNum: string;
     token?: string;
+    role: string;
 
     constructor() {
     }

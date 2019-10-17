@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { HomeModule } from './home/home.module';
 import { SharedModule } from '../shared/shared.module';
 import { PublicRoutingModule } from './public-routing.module';
-import { RegisterModule } from './register/register.module';
+import { ConnexionModule } from './connexion/connexion.module';
 
 @NgModule({
   declarations: [],
@@ -10,7 +10,7 @@ import { RegisterModule } from './register/register.module';
     SharedModule,
     PublicRoutingModule,
     HomeModule,
-    RegisterModule
+    ConnexionModule,
   ]
 })
 export class PublicModule { }

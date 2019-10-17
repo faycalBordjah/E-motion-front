@@ -28,4 +28,7 @@ export class AppConstants {
         return this.baseUrl + '/locations';
     }
 
+    public static get jwt_token(): string {
+      return 'JWT_TOKEN';
+    }
 }

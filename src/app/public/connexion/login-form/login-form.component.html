@@ -1,0 +1,36 @@
+<div class="logincontainer">
+  <div class="card" style="width:20%;margin: auto;">
+    <form #loginForm="ngForm" (ngSubmit)="logIn(loginForm.value)" class="px-3 py-4">
+
+            <div class="form-group">
+              <label for="mail" style="margin-bottom:0;"><u id="mail">Email:</u></label>
+              <input  class="form-control" name="mail" type="email"  placeholder="email@example.com" ngModel required>
+            </div>
+
+            <div>
+              <div class="form-group">
+                <label for="password"><u id="password">Mot de passe: </u></label><br>
+                <input class="form-control" type="password" name="password" [type]="hideInput ? 'password': 'text'" ngModel required style="display:inline-flex;width:80%;height: 2.5rem;">
+                <button class="btn btnHide" type="button" (click)="hideInput = !hideInput" >
+                  <span>
+                    <i [ngClass]="hideInput ? 'far fa-eye' : 'far fa-eye-slash'"></i>
+                  </span>
+                </button>
+                <div *ngIf="invalidLogin" class="error">
+                  <div>Invalid credentials.</div>
+                </div>
+              </div>
+            </div>
+
+      <div style="text-align:center;margin: 0 auto 0 auto">
+          <button *ngIf="loginForm.form.valid" type="submit" class="btn btn-card btn-primary"
+          [disabled]="!loginForm.form.valid" click="reset()">Connexion</button>
+      </div>
+    </form>
+    <div class="dropdown-divider"></div>
+    <div style="margin-bottom: 2%; text-align:center;">
+        <a class="dropdown-item" [routerLink]="'/signup'">Vous n'avez pas encore de compte ? &nbsp;Inscrivez-vous !</a>
+    </div>
+
+  </div>
+</div>
