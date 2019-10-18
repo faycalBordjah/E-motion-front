@@ -7,10 +7,8 @@ import { ManageComponent } from './manage/manage.component';
 
 const routes: Routes = [
   {
-    path: 'vehicules', component: VehiculeListComponent
-  },
-  {
-    path: 'users', component: UserListComponent
+    path: 'manage',
+    loadChildren: () => import('./manage/manage.module').then(m => m.ManageModule)
   }
 ];
 
