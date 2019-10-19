@@ -76,6 +76,7 @@
                                   <button *ngIf="loginForm.form.valid" type="submit" class="btn btn-card btn-primary"
                                   [disabled]="!loginForm.form.valid" click="reset()">Connexion</button>
                               </div>
+                                <span *ngIf="invalidLogin">ERROR</span>
                             </form>
                             <div class="dropdown-divider"></div>
                             <div style="margin-bottom: 2%;">
