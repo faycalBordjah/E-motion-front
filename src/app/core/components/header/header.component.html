@@ -9,7 +9,7 @@
               <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</button>
             <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
           </li>
-          <li id="nav-gestion" class="nav-item pr-3" *ngIf="user && role === 'admin' || token && role ==='admin'">
+          <li id="nav-gestion" class="nav-item pr-3" *ngIf="user && role === 'admin'">
               <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'manage'">Administration</button>
           </li>
           <li id="nav-location" class="nav-item pr-3">
@@ -35,22 +35,22 @@
   <div class="float-center pr-2">
       <span class="navbar-text text-black">
         <ul class="navbar-nav mr-auto">
-            <li id="nav-connexion" class="nav-item" *ngIf="!user && !token">
+            <li id="nav-connexion" class="nav-item" *ngIf="!user">
                 <button class="btn btn-light" type="button" [routerLink]="'connexion'">
                   Connexion
                 </button>
             </li>
-          <li id="nav-deconnexion" class="nav-item" *ngIf="user || token">
+          <li id="nav-deconnexion" class="nav-item" *ngIf="user">
               <button type="button" (click)="logOut()" class="btn btn-light">Déconnexion</button>
           </li>
         </ul>
       </span>
     </div>
-    <div class="hexagon" *ngIf="user || token">
+    <div class="hexagon" *ngIf="user">
         <div class="vertical-align:middle;">
             <ng-template #tipProfil>Profile</ng-template>
             <a class="dropdown-item profilIcon" [tooltip]="tipProfil" [delay]="200" [adaptivePosition]="false"
-               placement="right" [routerLinkActive]="['active']" [routerLink]="'profil'"><i class="fas fa-user-circle" style="font-size: 2.89999999rem; padding-left: 3px;"></i></a>
+               placement="right" [routerLinkActive]="['active']" [routerLink]="'profil'"><i class="fas fa-user-circle" style="font-size: 2.89999999rem;"></i></a>
             <!--<a class="dropdown-item" style="padding: 0.75rem 1.5rem; font-size: 2.7rem;" [routerLinkActive]="['active']" [routerLink]="'profil'"><i class="fas fa-user"></i></a>-->
         </div>
     </div>
