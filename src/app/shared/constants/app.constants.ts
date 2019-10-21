@@ -24,6 +24,10 @@ export class AppConstants {
         return this.baseUrl + '/vehicles';
     }
 
+    public static get api_admin_vehicule(): string {
+      return this.baseUrl + '/admin/vehicles';
+    }
+
     public static get api_location_url(): string {
         return this.baseUrl + '/locations';
     }
