@@ -1,19 +1,18 @@
+import { Adress } from './adress';
+
 export class User {
 
     readonly userId: string;
     firstName: string;
     lastName: string;
     birthDate: Date;
-    roadNumber: number;
-    street: string;
-    town: string;
-    zipCode: number;
-    phone: string;
     mail: string;
     password: string;
+    phone: string;
     permitNum: string;
-    token?: string;
-    role: string;
+    adress: Adress;
+    creationDate: string;
+    modificationDate: string;
 
     constructor() {
     }

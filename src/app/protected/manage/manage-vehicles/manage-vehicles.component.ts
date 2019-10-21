@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicle } from 'src/app/shared/models/vehicle';
-import { VehicleService } from 'src/app/shared/services/vehicle.service';
-import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 
 @Component({
   selector: 'app-gestion-vehicules',
@@ -10,20 +7,26 @@ import { ErrorHandlerService } from 'src/app/shared/services/error-handler.servi
 })
 export class ManageVehiclesComponent implements OnInit {
 
-  vehicules: Vehicle[];
+  features: any[];
 
-  constructor(private vehiculeService: VehicleService, private errorService: ErrorHandlerService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.vehiculeService.getAll().subscribe(data => {
-      if (data) {
-        this.vehicules = data.result as Vehicle[];
-        console.log(this.vehicules);
-        }
+
+    this.features = [
+      {
+        title: 'Afficher la liste',
+        description: 'liste des vehicules',
+        icon: 'assets/img/icon-list.png',
+        route: '/manage/vehicules',
       },
-      (error) => {
-        this.errorService.handleError(error);
-      }
-    );
+      {
+        title: 'Ajouter un élément',
+        description: 'ajouter un vehicule',
+        icon: 'assets/img/icon-add.png',
+        route: '/manage/vehicule',
+      },
+    ];
   }
+
 }

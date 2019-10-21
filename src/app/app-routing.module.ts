@@ -5,10 +5,6 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '', redirectTo: '/home', pathMatch: 'full'
-  },
-  {
-    path: 'manage',
-    loadChildren: () => import('./protected/manage/manage.module').then(m => m.ManageModule)
   }
 ];
 

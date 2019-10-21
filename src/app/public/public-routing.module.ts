@@ -9,10 +9,7 @@ const routes: Routes = [
   {
     path: 'connexion',
     loadChildren: () => import('./connexion/connexion.module').then(m => m.ConnexionModule)
-  },
-  {
-    path: 'home', component: HomeComponent
-  },
+  }
 ];
 
 @NgModule({
