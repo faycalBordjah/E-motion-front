@@ -1,30 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/shared/models/user';
-import { UserService } from 'src/app/shared/services/user.service';
-import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
 
 @Component({
-  selector: 'app-gestion-utilisateurs',
+  selector: 'app-manage-users',
   templateUrl: './manage-users.component.html',
-  styleUrls: ['./gestion-utilisateurs.component.scss']
+  styleUrls: ['./manage-users.component.scss']
 })
 export class ManageUsersComponent implements OnInit {
 
-  utilisateurs: User[];
+  features: any[];
 
-  constructor(private userService: UserService, private errorService: ErrorHandlerService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.userService.getAll().subscribe(data => {
-      if (data) {
-        this.utilisateurs = data.result as User[];
-        console.log(this.utilisateurs);
-        }
+
+    this.features = [
+      {
+        title: 'Afficher la liste',
+        description: 'liste des utilisateurs',
+        icon: 'assets/img/icon-list.png',
+        route: '/manage/utilisateurs',
       },
-      (error) => {
-        this.errorService.handleError(error);
-      }
-    );
+      {
+        title: 'Ajouter un élément',
+        description: 'ajouter un utilsiateur',
+        icon: 'assets/img/icon-add.png',
+        route: '/manage/utilisateur',
+      },
+    ];
   }
 
 }

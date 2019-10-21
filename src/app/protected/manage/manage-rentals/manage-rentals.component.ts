@@ -1,22 +1,37 @@
 import { Component, OnInit } from '@angular/core';
-import { ErrorHandlerService } from 'src/app/shared/services/error-handler.service';
-import { RentalService } from 'src/app/shared/services/rental.service';
 
 @Component({
-  selector: 'app-gestion-locations',
+  selector: 'app-manage-rentals',
   templateUrl: './manage-rentals.component.html',
-  styleUrls: ['./gestion-locations.component.scss']
+  styleUrls: ['./manage-rentals.component.scss']
 })
 export class ManageRentalsComponent implements OnInit {
 
-  locations: Location[];
-  id = 1;
+  // locations: Location[];
+  // id = 1;
 
-  constructor(private locationsService: RentalService, private errorService: ErrorHandlerService) { }
+  features: any[];
+
+  constructor() { }
 
   ngOnInit() {
 
-    this.locationsService.getAll(this.id).subscribe(data => {
+    this.features = [
+      {
+        title: 'Afficher la liste',
+        description: 'liste des locations',
+        icon: 'assets/img/icon-list.png',
+        route: '/manage/locations',
+      },
+      {
+        title: 'Ajouter un élément',
+        description: 'ajouter une location',
+        icon: 'assets/img/icon-add.png',
+        route: '/manage/location',
+      },
+    ];
+
+    /*this.locationsService.getAll(this.id).subscribe(data => {
       if (data) {
         this.locations = data.result as Location[];
         console.log(this.locations);
@@ -25,7 +40,7 @@ export class ManageRentalsComponent implements OnInit {
     (error) => {
       this.errorService.handleError(error);
     }
-    );
+    );*/
   }
 
 }
