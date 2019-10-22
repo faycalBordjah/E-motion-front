@@ -2,9 +2,14 @@
 <div class="card mb-3" [routerLink]="route">
   <h3 class="card-header">{{ title }}</h3>
   <div class="card-body">
-    <img [src]="icon" class="w-25 img-fluid mx-auto d-block" />
+    <span>
+        <img [src]="icon" class="w-10 img-fluid mx-auto d-block" />
+    </span>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item text-center">{{ description }}</li>
   </ul>
 </div>
+
+
+

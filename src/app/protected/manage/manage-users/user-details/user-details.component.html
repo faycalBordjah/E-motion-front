@@ -1,0 +1,112 @@
+<div class="card">
+  <div class="card-header bg-info text-white">Détails de l'utilisateur</div>
+  <form #UserUpdateForm="ngForm" (ngSubmit)="updateUser(userUpdateForm.value)"></form>
+  <div class="card-body">
+      <div class="row text-center">
+        <div class="col-12"><h5>Dénomination</h5></div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="firstName"><u>Prénom</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.firstName" type="text" id="user.firstName" name="user.firstName" [ngModel]="user.firstName" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="lastName"><u>Nom</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.lastName" type="text" id="user.lastName" name="user.lastName" [ngModel]="user.lastName" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="birthDate"><u>Date de naissance</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.birthDate | date:'shortDate':'+0200':'fr'" type="text" id="user.birthDate" name="user.birthDate" [ngModel]="user.birthDate" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="phone"><u>N° de téléphone</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.phone" type="text" id="user.phone" name="user.phone" [ngModel]="user.phone" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="permitNum"><u>N° de permit</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.permitNum" type="text" id="user.permitNum" name="user.permitNum" [ngModel]="user.permitNum" required>
+        </div>
+      </div>
+      <hr>
+      <div class="row text-center">
+        <div class="col-12">
+          <h5>Identification</h5></div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="mail"><u>Email</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.mail" type="email" id="user.mail" name="user.mail" [ngModel]="user.mail" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="password"><u>Mot de passe</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.password" type="email" id="user.password" name="user.password" [ngModel]="user.password" required>
+        </div>
+      </div>
+      <hr>
+      <div class="row text-center">
+        <div class="col-12">
+          <h5>Adresse</h5></div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="number"><u>Numéro</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.adress.number" type="text" id="user.adress.number" name="user.adress.number" [ngModel]="user.adress.number" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="street"><u>Rue</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.adress.street" type="text" id="user.adress.street" name="user.adress.street" [ngModel]="user.adress.street" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="city"><u>Ville</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.adress.city" type="text" id="user.adress.city" name="user.adress.city" [ngModel]="user.adress.city" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="city"><u>state</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.adress.state" type="text" id="user.adress.state" name="user.adress.state" [ngModel]="user.adress.state" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="country"><u>Pays</u> :</label></div>
+        <div class="col-7">
+            <input [value]="user.adress.country" type="text" id="user.adress.country" name="user.adress.country" [ngModel]="user.adress.country" required>
+        </div>
+      </div>
+      <hr>
+      <div class="row text-center">
+          <div class="col-12">
+            <h5>Edition</h5></div>
+        </div>
+      <div class="row">
+        <div class="col-6"><label class="control-label" for="creationDate"><u>Date de création</u> :</label></div>
+        <div class="col-6">
+            <input [value]="user.creationDate | date:'shortDate':'+0200':'fr'" type="text" id="user.creationDate" name="user.creationDate" [ngModel]="user.creationDate" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6"><label class="control-label" for="modificationDate"><u>Date de modification</u> :</label></div>
+        <div class="col-6">
+            <input [value]="user.modificationDate | date:'shortDate':'+0200':'fr'" type="text" id="user.modificationDate" name="user.modificationDate" [ngModel]="user.modificationDate" required>
+        </div>
+      </div>
+  </div>
+  <div class="card-footer text-center">
+    <button type="submit" class="btn btn-info btn-sm mr-2">
+        <span class="far fa-edit fa-lg"></span>&nbsp; Mettre à jour la fiche du véhicule</button>
+  </div>
+</div>

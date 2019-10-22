@@ -6,11 +6,8 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageRentalsComponent } from './manage-rentals/manage-rentals.component';
 import { ManageRentalListComponent } from './manage-rentals/manage-rental-list/manage-rental-list.component';
 import { ManageRentalAddComponent } from './manage-rentals/manage-rental-add/manage-rental-add.component';
-import { ManageUserListComponent } from './manage-users/manage-user-list/manage-user-list.component';
 import { ManageUserAddComponent } from './manage-users/manage-user-add/manage-user-add.component';
-import { ManageVehicleListComponent } from './manage-vehicles/manage-vehicle-list/manage-vehicle-list.component';
 import { ManageVehicleAddComponent } from './manage-vehicles/manage-vehicle-add/manage-vehicle-add.component';
-import { ManageFeatureListComponent } from './manage-feature-list/manage-feature-list.component';
 
 const routes: Routes = [
   {
@@ -30,24 +27,16 @@ const routes: Routes = [
         component: ManageRentalAddComponent
       },
       {
-        path: 'utilisateurfeature',
-        component: ManageUsersComponent
-      },
-      {
         path: 'utilisateurs',
-        component: ManageUserListComponent
+        component: ManageUsersComponent
       },
       {
         path: 'utilisateur',
         component: ManageUserAddComponent
       },
       {
-        path: 'vehiculefeature',
-        component: ManageVehiclesComponent
-      },
-      {
         path: 'vehicules',
-        component: ManageVehicleListComponent
+        component: ManageVehiclesComponent
       },
       {
         path: 'vehicule',
