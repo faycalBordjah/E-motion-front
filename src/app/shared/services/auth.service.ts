@@ -19,9 +19,9 @@ export class AuthService {
     private readonly jwt = AppConstants.jwt_token;
     public authApi = AppConstants.api_authentication_url;
 
-    private readonly User: BehaviorSubject<User>;
-    private readonly Token: BehaviorSubject<string>;
-    private readonly Role: BehaviorSubject<string>;
+    private readonly userBehaviorSub: BehaviorSubject<User>;
+    private readonly tokenBehaviorSub: BehaviorSubject<string>;
+    private readonly roleBehaviorSub: BehaviorSubject<string>;
     public readonly user$: Observable<User>;
     public readonly token$: Observable<string>;
     public readonly role$: Observable<string>;
@@ -37,19 +37,19 @@ export class AuthService {
 
 
     constructor(private http: HttpClient) {
-      this.Token = new BehaviorSubject<string>(JSON.parse(sessionStorage.getItem(this.jwt)));
-      this.token$ = this.Token.asObservable();
-      this.User = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser')));
-      this.user$ = this.User.asObservable();
-      this.Role = new BehaviorSubject<string>(this.userRole.authority);
-      this.role$ = this.Role.asObservable();
+      this.tokenBehaviorSub = new BehaviorSubject<string>(JSON.parse(sessionStorage.getItem(this.jwt)));
+      this.token$ = this.tokenBehaviorSub.asObservable();
+      this.userBehaviorSub = new BehaviorSubject<User>(JSON.parse(sessionStorage.getItem('currentUser')));
+      this.user$ = this.userBehaviorSub.asObservable();
+      this.roleBehaviorSub = new BehaviorSubject<string>(this.userRole.authority);
+      this.role$ = this.roleBehaviorSub.asObservable();
     }
 
     authenticate(loginPayload): Observable<any> {
       return this.http.post<any>(this.authApiUrl + '/signin', loginPayload , {headers: this.headers})
       .pipe(map(data => {
         this.storeJwtToken(JSON.stringify(data.result.token));
-        this.Token.next(data);
+        this.tokenBehaviorSub.next(data);
       }));
     }
 
@@ -57,7 +57,7 @@ export class AuthService {
       return this.http.post<any>(this.authApi + '/signup', registerPayload, {headers: this.headers})
       .pipe(map(data => {
         this.storeCurrentUser(data.result);
-        this.User.next(data);
+        this.userBehaviorSub.next(data);
       }));
     }
 
@@ -65,9 +65,9 @@ export class AuthService {
         // remove user from session storage and set current user to null
         sessionStorage.removeItem(this.jwt);
         sessionStorage.removeItem('currentUser');
-        this.Token.next(null);
-        this.User.next(null);
-        this.Role.next(null);
+        this.tokenBehaviorSub.next(null);
+        this.userBehaviorSub.next(null);
+        this.roleBehaviorSub.next(null);
     }
 
     getJwtToken() {
@@ -94,9 +94,9 @@ export class AuthService {
       }
       console.log(this.userRole.authority);
       sessionStorage.setItem('currentUser', JSON.stringify(jwt_decode(token)));
-      this.User.next(JSON.parse(sessionStorage.getItem('currentUser')));
+      this.userBehaviorSub.next(JSON.parse(sessionStorage.getItem('currentUser')));
       sessionStorage.setItem(this.jwt, token);
-      this.Role.next(this.userRole.authority);
+      this.roleBehaviorSub.next(this.userRole.authority);
     }
 
     refreshRole() {
@@ -112,9 +112,9 @@ export class AuthService {
             this.userRole.authority = 'admin';
           }
           console.log(this.userRole.authority);
-          this.Role.next(this.userRole.authority);
+          this.roleBehaviorSub.next(this.userRole.authority);
         } else {
-          this.Role.next(null);
+          this.roleBehaviorSub.next(null);
         }
     }
 
@@ -123,23 +123,23 @@ export class AuthService {
     }
 
     public get currentTokenValue(): string {
-      return this.Token.value;
+      return this.tokenBehaviorSub.value;
     }
 
     set token(val: string) {
-      this.Token.next(val);
+      this.tokenBehaviorSub.next(val);
     }
 
     public get currentUserValue(): User {
-      return this.User.value;
+      return this.userBehaviorSub.value;
     }
 
     set user(val: User) {
-      this.User.next(val);
+      this.userBehaviorSub.next(val);
     }
 
     public get currentRoleValue(): string {
-      return this.Role.value;
+      return this.roleBehaviorSub.value;
     }
 
 }

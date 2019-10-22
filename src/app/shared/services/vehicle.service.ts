@@ -12,13 +12,13 @@ import { map } from 'rxjs/operators';
 })
 export class VehicleService {
 
-  public vehiculeApi = AppConstants.api_vehicle_url;
+  public vehicleApi = AppConstants.api_vehicle_url;
 
   private adminApi = AppConstants.api_admin_vehicule;
 
-  private readonly Vehicles: BehaviorSubject<Vehicle[]>;
+  private readonly vehicleBehaviorSub: BehaviorSubject<Vehicle[]>;
   public readonly vehicles$: Observable<Vehicle[]>;
-  private readonly VehicleSelectedStored: BehaviorSubject<Vehicle>;
+  private readonly vehicleSelectedStored: BehaviorSubject<Vehicle>;
   public readonly vehicleSelectedStored$: Observable<Vehicle>;
   private vehicleDetails: Vehicle;
   private listVehicles: Vehicle[];
@@ -29,21 +29,21 @@ export class VehicleService {
     });
 
   constructor(private http: HttpClient) {
-    this.Vehicles = new BehaviorSubject<Vehicle[]>(this.listVehicles);
-    this.vehicles$ = this.Vehicles.asObservable();
-    this.VehicleSelectedStored = new BehaviorSubject<Vehicle>(this.vehicleDetails);
-    this.vehicleSelectedStored$ = this.VehicleSelectedStored.asObservable();
+    this.vehicleBehaviorSub = new BehaviorSubject<Vehicle[]>(this.listVehicles);
+    this.vehicles$ = this.vehicleBehaviorSub.asObservable();
+    this.vehicleSelectedStored = new BehaviorSubject<Vehicle>(this.vehicleDetails);
+    this.vehicleSelectedStored$ = this.vehicleSelectedStored.asObservable();
    }
 
   getAll(): Observable<any> {
-    return this.http.get<any>(this.vehiculeApi)
+    return this.http.get<any>(this.vehicleApi)
     .pipe(map(data => {
       this.storeVehiclesList(data.result);
     }));
   }
 
   getById(id: string): Observable<Vehicle> {
-    return this.http.get<any>(this.vehiculeApi + '/' + id);
+    return this.http.get<any>(this.vehicleApi + '/' + id);
   }
 
   addVehicle(vehicle: any): Observable<ApiResponse> {
@@ -53,15 +53,15 @@ export class VehicleService {
 
   storeVehiclesList(vehicles: Vehicle[]) {
     this.listVehicles = vehicles as Vehicle[];
-    this.Vehicles.next(this.listVehicles);
+    this.vehicleBehaviorSub.next(this.listVehicles);
   }
 
   public get currentVehiclesValue(): Vehicle[] {
-    return this.Vehicles.value;
+    return this.vehicleBehaviorSub.value;
   }
 
   storeVehicleDetails(vehicle: Vehicle) {
     this.vehicleDetails = vehicle as Vehicle;
-    this.VehicleSelectedStored.next(this.vehicleDetails);
+    this.vehicleSelectedStored.next(this.vehicleDetails);
   }
 }

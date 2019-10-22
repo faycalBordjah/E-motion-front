@@ -5,24 +5,24 @@
         <div class="col-12"> <h5>Descriptif</h5></div>
       </div>
       <div class="row">
-        <div class="col-5"><label class="control-label" for="startDate"><u>Date de début</u> :</label></div>
+        <div class="col-5"><label class="control-label" for="startDate"><u id="startDate">Date de début</u> :</label></div>
         <div class="col-7">{{rental.startDate | date:'shortDate':'+0200':'fr'}}</div>
       </div>
       <div class="row">
-        <div class="col-5"><label class="control-label" for="endDate"><u>Date de fin</u> :</label></div>
+        <div class="col-5"><label class="control-label" for="endDate"><u id="endDate">Date de fin</u> :</label></div>
         <div class="col-7">{{rental.endDate | date:'shortDate':'+0200':'fr'}}</div>
       </div>
       <div class="row">
-        <div class="col-5"><label class="control-label" for="startTime"><u>Heure de début</u> :</label></div>
+        <div class="col-5"><label class="control-label" for="startTime"><u id="startTime">Heure de début</u> :</label></div>
         <div class="col-7">{{rental.startTime}}</div>
       </div>
       <div class="row">
-        <div class="col-5"><label class="control-label" for="endTime"><u>Heure de fin</u> :</label></div>
+        <div class="col-5"><label class="control-label" for="endTime"><u id="endTime">Heure de fin</u> :</label></div>
         <div class="col-7">{{rental.endTime}}</div>
       </div>
       <div class="row">
-        <div class="col-5"><label class="control-label" for="state"><u>Etat</u> :</label></div>
-        <div class="col-7">{{rental.state}}</div>
+        <div class="col-5"><label class="control-label" for="state"><u id="state">Etat</u> :</label></div>
+        <div class="col-7">{{rental.status}}</div>
       </div>
       <hr>
       <div class="row text-center">
@@ -30,7 +30,7 @@
           <h5>Utilisateur</h5></div>
       </div>
       <div class="row">
-        <div class="col-5"><label class="control-label" for="user"><u>Dénomination</u> :</label></div>
+        <div class="col-5"><label class="control-label" for="user"><u id="user">Dénomination</u> :</label></div>
         <div class="col-7">{{rentalUser.firstName}} {{rentalUser.lastName}}</div>
       </div>
       <hr>
@@ -39,7 +39,7 @@
           <h5>Véhicule</h5></div>
       </div>
       <div class="row">
-        <div class="col-5"><label class="control-label" for="vehicle"><u>Immatriculation</u> :</label></div>
+        <div class="col-5"><label class="control-label" for="vehicle"><u id="vehicle">Immatriculation</u> :</label></div>
         <div class="col-7">{{rentalVehicle.registering}}</div>
       </div>
   </div>

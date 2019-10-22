@@ -12,9 +12,9 @@ export class UserService {
 
   public userApi = AppConstants.api_admin_users;
 
-  private readonly Users: BehaviorSubject<User[]>;
+  private readonly usersBehaviorSub: BehaviorSubject<User[]>;
   public readonly users$: Observable<User[]>;
-  private readonly UserSelectedStored: BehaviorSubject<User>;
+  private readonly userSelectedStored: BehaviorSubject<User>;
   public readonly userSelectedStored$: Observable<User>;
   private userDetails: User;
   private listUsers: User[];
@@ -25,10 +25,10 @@ export class UserService {
     });
 
   constructor(private http: HttpClient) {
-    this.Users = new BehaviorSubject<User[]>(this.listUsers);
-    this.users$ = this.Users.asObservable();
-    this.UserSelectedStored = new BehaviorSubject<User>(this.userDetails);
-    this.userSelectedStored$ = this.UserSelectedStored.asObservable();
+    this.usersBehaviorSub = new BehaviorSubject<User[]>(this.listUsers);
+    this.users$ = this.usersBehaviorSub.asObservable();
+    this.userSelectedStored = new BehaviorSubject<User>(this.userDetails);
+    this.userSelectedStored$ = this.userSelectedStored.asObservable();
   }
 
   getAll(): Observable<any> {
@@ -46,16 +46,16 @@ export class UserService {
   storeUsersList(users: User[]) {
     console.log(users);
     this.listUsers = users as User[];
-    this.Users.next(this.listUsers);
+    this.usersBehaviorSub.next(this.listUsers);
   }
 
   public get currentUsersValue(): User[] {
-    return this.Users.value;
+    return this.usersBehaviorSub.value;
   }
 
   storeUserDetails(user: User) {
     this.userDetails = user as User;
-    this.UserSelectedStored.next(this.userDetails);
+    this.userSelectedStored.next(this.userDetails);
   }
 
 }

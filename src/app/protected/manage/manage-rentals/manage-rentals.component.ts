@@ -9,34 +9,31 @@ import { RentalService } from 'src/app/shared/services/rental.service';
 })
 export class ManageRentalsComponent implements OnInit {
 
-  // locations: Location[];
-  // id = 1;
-
   featureAdd: any[];
   rentals: Rental[];
   rentalSelect;
 
   constructor(private rentalService: RentalService) {
     this.rentalService.getAll().subscribe();
-    this.rentalService.rentals$.subscribe(rentals => {
-      if (rentals) {
-        this.rentals = rentals as Rental[];
-        console.log(this.rentals);
-      }
-    });
-
-    this.rentalService.rentalSelectedStored$.subscribe(rental => {
-      if (rental) {
-        this.rentalSelect = rental as Rental;
-        console.log(this.rentalSelect);
-      }
-    });
-
-
-   }
+    this.rentalService.rentals$.subscribe(
+          rentals => {
+              this.rentals = rentals as Rental[];
+              console.log(this.rentals);
+          }, () => {
+              console.log('HANDLE THIS BY ADD ALERT IN ERROR');
+          }
+      );
+    this.rentalService.rentalSelectedStored$.subscribe(
+          rental => {
+              this.rentalSelect = rental as Rental;
+              console.log(this.rentalSelect);
+          },
+          () => {
+              console.log('HANDLE THIS BY ADD ALERT IN ERROR');
+          });
+  }
 
   ngOnInit() {
-
     this.featureAdd = [
       {
         icon: 'assets/img/icon-add.png',

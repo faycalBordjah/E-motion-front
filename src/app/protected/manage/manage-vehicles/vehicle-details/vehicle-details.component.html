@@ -6,60 +6,60 @@
             <div class='col-12'><h5>Descriptif</h5></div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="brand"><u>Marque</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="brand"><u id="brand">Marque</u> :</label></div>
             <div class="col-7">
               <input [value]="vehicle.brand" type="text" id="vehicle.brand" name="vehicle.brand" [ngModel]="vehicle.brand" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="model"><u>Modèle</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="model"><u id="model">Modèle</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.model" type="text" id="vehicle.model" name="vehicle.model" [ngModel]="vehicle.model" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="type"><u>Type</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="type"><u id="type">Type</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.type" type="text" id="vehicle.type" name="vehicle.type" [ngModel]="vehicle.type" required></div>
             </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="category"><u>Categorie</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="category"><u id="category">Categorie</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.category" type="text" id="vehicle.category" name="vehicle.category" [ngModel]="vehicle.category" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="color"><u>Couleur</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="color"><u id="color">Couleur</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.color" type="text" id="vehicle.color" name="vehicle.color" [ngModel]="vehicle.color" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="placeNumber"><u>Nb Place</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="placeNumber"><u id="placeNumber">Nb Place</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.placeNumber" type="text" id="vehicle.placeNumber" name="vehicle.placeNumber" [ngModel]="vehicle.placeNumber" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="kilometers"><u>Compteur Km</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="kilometers"><u id="kilometers">Compteur Km</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.kilometers" type="text" id="vehicle.kilometers" name="vehicle.kilometers" [ngModel]="vehicle.kilometers" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="available"><u>Disponible</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="available"><u id="available">Disponible</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.available" type="text" id="vehicle.available" name="vehicle.available" [ngModel]="vehicle.available" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="purchasePrice"><u>Prix d'achat</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="purchasePrice"><u id="purchasePrice">Prix d'achat</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.purchasePrice" type="text" id="vehicle.purchasePrice" name="vehicle.purchasePrice" [ngModel]="vehicle.purchasePrice" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="state"><u>Etat</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="state"><u id="state">Etat</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.state" type="text" id="vehicle.state" name="vehicle.state" [ngModel]="vehicle.state" required>
             </div>
@@ -69,19 +69,19 @@
               <div class="col-12"><h5>Identité Préfecture</h5></div>
             </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="registering"><u>Immatriculation</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="registering"><u id="registering">Immatriculation</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.registering" type="text" id="vehicle.registering" name="vehicle.registering" [ngModel]="vehicle.registering" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="serialNumber"><u>N° Série</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="serialNumber"><u id="serialNumber">N° Série</u> :</label></div>
             <div class="col-7">
                 <input [value]="vehicle.serialNumber" type="text" id="vehicle.serialNumber" name="vehicle.serialNumber" [ngModel]="vehicle.serialNumber" required>
             </div>
           </div>
           <div class="row">
-            <div class="col-5"><label class="control-label" for="purchaseDate"><u>Date d'achat</u> :</label></div>
+            <div class="col-5"><label class="control-label" for="purchaseDate"><u id="purchaseDate">Date d'achat</u> :</label></div>
             <!--<div class="col-7">{{vehicle?.purchaseDate | date:'shortDate':'+0200':'fr'}}</div>-->
             <div class="col-7">
                 <input #dp="bsDatepicker" bsDatepicker [bsConfig]="{ adaptivePosition: true, isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
