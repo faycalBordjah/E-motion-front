@@ -24,7 +24,7 @@ export class UserListComponent implements OnInit {
 
   bindUser(indexOfUser: number) {
     this.user = this.users[indexOfUser];
-    this.userService.stroreVehicleDetails(this.user);
+    this.userService.storeUserDetails(this.user);
   }
 
 }

@@ -26,7 +26,7 @@ export class VehicleListComponent implements OnInit {
 
   bindVehicle(indexOfVehicle: number) {
     this.vehicle = this.vehicles[indexOfVehicle];
-    this.vehicleService.stroreVehicleDetails(this.vehicle);
+    this.vehicleService.storeVehicleDetails(this.vehicle);
     /*this.vehicleService.vehicleStored$.subscribe(data => {
       this.vehicle = data as Vehicle;
     });

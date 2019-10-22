@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/shared/models/user';
 import { UserService } from 'src/app/shared/services/user.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-manage-users',
@@ -13,11 +14,8 @@ export class ManageUsersComponent implements OnInit {
   users: User[];
   userSelect;
 
-  constructor(private userService: UserService) {
-    this.userService.getAll().subscribe(data => {
-      console.log(data);
-    });
-    /*this.userService.getAll().subscribe();
+  constructor(private userService: UserService, private authService: AuthService) {
+    this.userService.getAll().subscribe();
     this.userService.users$.subscribe(users => {
       if (users) {
         this.users = users as User[];
@@ -29,7 +27,7 @@ export class ManageUsersComponent implements OnInit {
         this.userSelect = user as User;
         console.log(this.userSelect);
       }
-    });*/
+    });
    }
 
   ngOnInit() {

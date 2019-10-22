@@ -5,10 +5,7 @@ import { ManageVehiclesComponent } from './manage-vehicles/manage-vehicles.compo
 import { ManageRoutingModule } from './manage-routing.module';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageRentalsComponent } from './manage-rentals/manage-rentals.component';
-import { RentalListComponent } from './manage-rentals/manage-rental-list/rental-list/rental-list.component';
 
-import { ManageFeatureCardComponent } from './manage-feature-card/manage-feature-card.component';
-import { ManageRentalListComponent } from './manage-rentals/manage-rental-list/manage-rental-list.component';
 import { ManageRentalAddComponent } from './manage-rentals/manage-rental-add/manage-rental-add.component';
 import { RentalAddComponent } from './manage-rentals/manage-rental-add/rental-add/rental-add.component';
 import { ManageUserAddComponent } from './manage-users/manage-user-add/manage-user-add.component';
@@ -19,11 +16,10 @@ import { VehicleListComponent } from './manage-vehicles/vehicle-list/vehicle-lis
 import { VehicleAddComponent } from './manage-vehicles/manage-vehicle-add/vehicle-add/vehicle-add.component';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { frLocale } from 'ngx-bootstrap/locale';
-import { ManageFeatureListComponent } from './manage-feature-list/manage-feature-list.component';
-import { FeatureDetailsComponent } from './manage-feature-list/feature-details/feature-details.component';
 import { VehicleDetailsComponent } from './manage-vehicles/vehicle-details/vehicle-details.component';
 import { UserDetailsComponent } from './manage-users/user-details/user-details.component';
-import { RentalDetailsComponent } from './manage-rentals/manage-rental-list/rental-details/rental-details.component';
+import { RentalDetailsComponent } from './manage-rentals/rental-details/rental-details.component';
+import { RentalListComponent } from './manage-rentals/rental-list/rental-list.component';
 defineLocale('fr', frLocale);
 
 @NgModule({
@@ -32,22 +28,18 @@ defineLocale('fr', frLocale);
     ManageVehiclesComponent,
     ManageUsersComponent,
     ManageRentalsComponent,
-    RentalListComponent,
-    ManageRentalListComponent,
     ManageRentalAddComponent,
     RentalAddComponent,
+    RentalListComponent,
+    RentalDetailsComponent,
     ManageUserAddComponent,
     UserListComponent,
     UserAddComponent,
     ManageVehicleAddComponent,
     VehicleListComponent,
-    ManageFeatureCardComponent,
     VehicleAddComponent,
-    ManageFeatureListComponent,
-    FeatureDetailsComponent,
     VehicleDetailsComponent,
     UserDetailsComponent,
-    RentalDetailsComponent
   ],
   imports: [
     SharedModule,

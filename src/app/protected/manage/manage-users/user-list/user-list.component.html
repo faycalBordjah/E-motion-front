@@ -16,7 +16,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let u of users | async ; let i=index" (click)="bindUser(i)">
+        <tr *ngFor="let u of users; let i=index" (click)="bindUser(i)">
           <td>{{ u.firstName }}</td>
           <td>{{ u.lastName }}</td>
           <td>{{ u.mail }}</td>
@@ -24,7 +24,7 @@
           <td>{{ u.permitNum }}</td>
           <td >
             <ng-template #tipDel>Supprimer</ng-template>
-            <button class="btn btn-danger btnRounded" [tooltip]="tipDel" [delay]="500"><span class="far fa-edit fa-lg"></span></button></td>
+            <button class="btn btn-danger btnRounded" [tooltip]="tipDel" [delay]="500"><span class="far fa-trash-alt fa-lg"></span></button></td>
         </tr>
       </tbody>
     </table>

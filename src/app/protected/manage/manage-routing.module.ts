@@ -4,7 +4,6 @@ import { ManageComponent } from './manage.component';
 import { ManageVehiclesComponent } from './manage-vehicles/manage-vehicles.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { ManageRentalsComponent } from './manage-rentals/manage-rentals.component';
-import { ManageRentalListComponent } from './manage-rentals/manage-rental-list/manage-rental-list.component';
 import { ManageRentalAddComponent } from './manage-rentals/manage-rental-add/manage-rental-add.component';
 import { ManageUserAddComponent } from './manage-users/manage-user-add/manage-user-add.component';
 import { ManageVehicleAddComponent } from './manage-vehicles/manage-vehicle-add/manage-vehicle-add.component';
@@ -15,12 +14,8 @@ const routes: Routes = [
     component: ManageComponent,
     children: [
       {
-        path: 'locationfeature',
-        component: ManageRentalsComponent
-      },
-      {
         path: 'locations',
-        component: ManageRentalListComponent
+        component: ManageRentalsComponent
       },
       {
         path: 'location',
@@ -44,7 +39,7 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: 'locationfeature',
+        redirectTo: 'locations',
         pathMatch: 'full'
       },
     ]
