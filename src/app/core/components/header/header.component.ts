@@ -10,8 +10,6 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-    navbarOpen = false;
-
     @Input()
     user: User;
 
@@ -25,10 +23,6 @@ export class HeaderComponent {
     urlLogo: string;
 
     constructor(private authService: AuthService, private router: Router) {}
-
-    toggleNavbar() {
-        this.navbarOpen = !this.navbarOpen;
-    }
 
     logOut() {
       this.authService.logout();
