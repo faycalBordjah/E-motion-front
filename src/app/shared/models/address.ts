@@ -1,4 +1,4 @@
-export class Adress {
+export class Address {
 
   number: number;
   street: string;

@@ -1,16 +1,16 @@
-import { Adress } from './adress';
+import { Address } from './address';
 
 export class User {
 
     readonly userId: string;
     firstName: string;
     lastName: string;
-    birthDate: Date;
+    birthDay: Date;
     mail: string;
     password: string;
     phone: string;
     permitNum: string;
-    adress: Adress;
+    address: Address;
     creationDate: string;
     modificationDate: string;
 

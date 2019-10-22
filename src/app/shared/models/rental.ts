@@ -1,3 +1,6 @@
+import { Vehicle } from './vehicle';
+import { User } from './user';
+
 export class Rental {
 
   readonly locationId: string;
@@ -5,8 +8,8 @@ export class Rental {
   endDate: number;
   startTime: number;
   endTime: number;
-  readonly userId: string;
-  readonly vehicleId: string;
+  readonly user: User;
+  readonly vehicle: Vehicle;
   state: string[];
 
   constructor() {}
