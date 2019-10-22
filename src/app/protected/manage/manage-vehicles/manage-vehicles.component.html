@@ -2,16 +2,32 @@
   <h4 class="mb-2 mr-auto mr-md-none bd-title">Gestionnaire du parc de véhicules</h4>
 </header>
 <main role="main" class="mt-3">
-    <div class="container">
-        <div class="row justify-content-md-center">
-          <app-manage-feature-card *ngFor="let f of features"
-            class="col-md-4" [title]="f.title" [description]="f.description" [icon]="f.icon" [route]="f.route">
-          </app-manage-feature-card>
-          <ng-template #loadingParams>
-              <div class="m-4 alert alert-primary" role="alert">
-                Chargement ...
-              </div>
-          </ng-template>
+    <ng-container>
+        <div class="container-fluid" >
+          <div class="row flex-xl-nowrap">
+            <div class="col-9 py-2">
+                <div class="card mb-2">
+                    <app-vehicle-list [vehicles]="vehicles"></app-vehicle-list>
+                </div>
+            </div>
+            <div class="col-3 py-2">
+                  <div class="card" *ngFor="let f of featureAdd" [routerLink]="f.route">
+                    <div class="card-body">
+                        <ng-template #tipAddVechicle>Ajouter Véhicule</ng-template>
+                        <img [tooltip]="tipAddVechicle" [delay]="200" [adaptivePosition]="false" placement="right" [src]="f.icon" class="w-25 img-fluid mx-auto d-block" />
+                    </div>
+                  </div>
+
+              <app-vehicle-details *ngIf="vehicleSelect" [vehicle]="vehicleSelect"></app-vehicle-details>
+
+
+            </div>
+          </div>
         </div>
-      </div>
+      </ng-container>
+    <ng-template #loadingParams>
+        <div class="m-4 alert alert-primary" role="alert">
+          Chargement ...
+        </div>
+    </ng-template>
 </main>

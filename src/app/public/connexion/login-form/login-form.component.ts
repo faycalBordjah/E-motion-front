@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 import { Router } from '@angular/router';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-login-form',
@@ -13,6 +14,7 @@ export class LoginFormComponent implements OnInit {
 
   hideInput = true;
   invalidLogin = false;
+  role$: Observable<string>;
 
   @ViewChild('loginForm', {static: false}) loginForm: NgForm;
 
@@ -29,7 +31,14 @@ export class LoginFormComponent implements OnInit {
             console.log(data);
             // this.authService.storeJwtToken(data.result.token);
             this.loginForm.reset();
-            this.router.navigate(['/home']);
+            this.role$ = this.authService.role$;
+            this.role$.subscribe(role => {
+              if (role === 'admin') {
+                this.router.navigate(['/manage']);
+              } else {
+                this.router.navigate(['/home']);
+              }
+            });
         },
         (error) => {
             console.error(error);

@@ -6,20 +6,24 @@
     <span class="navbar-text text-black">
         <ul class="navbar-nav mr-auto">
           <li id="nav-accueil" class="nav-item pr-3">
-              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</button>
+              <button type="button" class="btn btn-light" *ngIf="role !== 'admin'" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</button>
             <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
           </li>
-          <li id="nav-gestion" class="nav-item pr-3" *ngIf="user && role === 'admin'">
-              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'manage'">Administration</button>
-          </li>
           <li id="nav-location" class="nav-item pr-3">
-              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'location'">Location</button>
+              <button type="button" class="btn btn-light" *ngIf="role !== 'admin'" [routerLinkActive]="['active']" [routerLink]="'trouverlocation'">Location</button>
             <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
           </li>
         </ul>
+        <div id="nav-welcome" class="float-left pl-4" *ngIf="user && role === 'admin'">
+          <div class="card badge badge-secondary">
+            <div class="card-header bg-info text-white py-3" style="font-size:14px;">
+              <span>user_name // user las_name // connected as : user_role</span>
+            </div>
+          </div>
+        </div>
     </span>
   </div>
-  <div class="float-center py-3 px-3 pl-3">
+  <!-- <div class="float-center py-3 px-3 pl-3">
     <span class="navbar-text text-black">
       <ul class="navbar-nav mr-auto" style="align-items: center">
         <li id="nav-recherche" class="nav-item">
@@ -31,7 +35,7 @@
           </li>
       </ul>
     </span>
-  </div>
+  </div> -->
   <div class="float-center pr-2">
       <span class="navbar-text text-black">
         <ul class="navbar-nav mr-auto">

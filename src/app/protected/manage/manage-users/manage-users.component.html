@@ -2,16 +2,32 @@
   <h4 class="mb-2 mr-auto mr-md-none bd-title">Gestionnaire des Utilisateurs</h4>
 </header>
 <main role="main" class="mt-3">
-    <div class="container">
-        <div class="row justify-content-md-center">
-          <app-manage-feature-card *ngFor="let f of features"
-            class="col-md-4" [title]="f.title" [description]="f.description" [icon]="f.icon" [route]="f.route">
-          </app-manage-feature-card>
-          <ng-template #loadingParams>
-              <div class="m-4 alert alert-primary" role="alert">
-                Chargement ...
-              </div>
-          </ng-template>
+    <ng-container>
+        <div class="container-fluid" >
+          <div class="row flex-xl-nowrap">
+            <div class="col-9 py-2">
+                <div class="card mb-2">
+                    <app-user-list [users]="users"></app-user-list>
+                </div>
+            </div>
+            <div class="col-3 py-2">
+                  <div class="card" *ngFor="let f of featureAdd" [routerLink]="f.route">
+                    <div class="card-body">
+                        <ng-template #tipAddUser>Ajouter Véhicule</ng-template>
+                        <img [tooltip]="tipAddUser" [delay]="200" [adaptivePosition]="false" placement="right" [src]="f.icon" class="w-25 img-fluid mx-auto d-block" />
+                    </div>
+                  </div>
+
+              <app-user-details *ngIf="userSelect" [user]="userSelect"></app-user-details>
+
+
+            </div>
+          </div>
         </div>
-      </div>
+      </ng-container>
+    <ng-template #loadingParams>
+        <div class="m-4 alert alert-primary" role="alert">
+          Chargement ...
+        </div>
+    </ng-template>
 </main>

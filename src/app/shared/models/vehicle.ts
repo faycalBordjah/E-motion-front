@@ -1,6 +1,6 @@
 export class Vehicle {
 
-  readonly vehicleId: string;
+  readonly id: string;
   model: string;
   brand: string;
   type: string;

@@ -10,10 +10,13 @@ import { map } from 'rxjs/operators';
 })
 export class UserService {
 
-  public userApi = AppConstants.api_user_url;
+  public userApi = AppConstants.api_admin_users;
 
   private readonly Users: BehaviorSubject<User[]>;
   public readonly users$: Observable<User[]>;
+  private readonly UserSelectedStored: BehaviorSubject<User>;
+  public readonly userSelectedStored$: Observable<User>;
+  private userDetails: User;
   private listUsers: User[];
 
   private headers = new HttpHeaders(
@@ -24,6 +27,8 @@ export class UserService {
   constructor(private http: HttpClient) {
     this.Users = new BehaviorSubject<User[]>(this.listUsers);
     this.users$ = this.Users.asObservable();
+    this.UserSelectedStored = new BehaviorSubject<User>(this.userDetails);
+    this.userSelectedStored$ = this.UserSelectedStored.asObservable();
   }
 
   getAll(): Observable<any> {
@@ -46,6 +51,11 @@ export class UserService {
 
   public get currentUsersValue(): User[] {
     return this.Users.value;
+  }
+
+  storeUserDetails(user: User) {
+    this.userDetails = user as User;
+    this.UserSelectedStored.next(this.userDetails);
   }
 
 }

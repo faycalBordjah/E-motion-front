@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Vehicle } from 'src/app/shared/models/vehicle';
+import { VehicleService } from 'src/app/shared/services/vehicle.service';
 
 @Component({
   selector: 'app-gestion-vehicules',
@@ -7,26 +10,34 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageVehiclesComponent implements OnInit {
 
-  features: any[];
+  featureAdd: any[];
+  vehicles: Vehicle[];
+  vehicleSelect;
 
-  constructor() { }
+  constructor(private vehicleService: VehicleService) {
+    this.vehicleService.getAll().subscribe();
+    this.vehicleService.vehicles$.subscribe(vehicles => {
+      if (vehicles) {
+        this.vehicles = vehicles as Vehicle[];
+        console.log(this.vehicles);
+      }
+    });
+    this.vehicleService.vehicleSelectedStored$.subscribe(vehicle => {
+      if (vehicle) {
+        this.vehicleSelect = vehicle as Vehicle;
+        console.log(this.vehicleSelect);
+      }
+    });
+   }
 
   ngOnInit() {
 
-    this.features = [
+    this.featureAdd = [
       {
-        title: 'Afficher la liste',
-        description: 'liste des vehicules',
-        icon: 'assets/img/icon-list.png',
-        route: '/manage/vehicules',
-      },
-      {
-        title: 'Ajouter un élément',
-        description: 'ajouter un vehicule',
         icon: 'assets/img/icon-add.png',
         route: '/manage/vehicule',
       },
     ];
   }
-
 }
+
