@@ -11,21 +11,24 @@ import { map } from 'rxjs/operators';
 })
 export class RentalService {
 
-  public apiLocation = AppConstants.api_location_url;
+  public apiLocation = AppConstants.api_admin_locations;
 
   private readonly Rentals: BehaviorSubject<Rental[]>;
   public readonly rentals$: Observable<Rental[]>;
+  private readonly RentalSelectedStored: BehaviorSubject<Rental>;
+  public readonly rentalSelectedStored$: Observable<Rental>;
   private listRentals: Rental[];
+  private rentalDetails: Rental;
 
   private headers = new HttpHeaders({
-    'Access-Control-Allow-Origin': '*',
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   });
-
 
   constructor(private http: HttpClient) {
     this.Rentals = new BehaviorSubject<Rental[]>(this.listRentals);
     this.rentals$ = this.Rentals.asObservable();
+    this.RentalSelectedStored = new BehaviorSubject<Rental>(this.rentalDetails);
+    this.rentalSelectedStored$ = this.RentalSelectedStored.asObservable();
    }
 
   getAll(): Observable<any> {
@@ -48,6 +51,12 @@ export class RentalService {
 
   public get currentRentalsValue(): Rental[] {
     return this.Rentals.value;
+  }
+
+  storeRentalDetails(rental: Rental) {
+    this.rentalDetails = rental as Rental;
+    this.RentalSelectedStored.next(this.rentalDetails);
+
   }
 
 

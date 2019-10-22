@@ -32,10 +32,10 @@ export class UserService {
   }
 
   getAll(): Observable<any> {
-    return this.http.get<any>(this.userApi);
-    /*.pipe(map(data => {
+    return this.http.get<any>(this.userApi)
+    .pipe(map(data => {
       this.storeUsersList(data.result);
-    }));*/
+    }));
   }
 
   getById(id: string): Observable<any> {
@@ -53,7 +53,7 @@ export class UserService {
     return this.Users.value;
   }
 
-  stroreVehicleDetails(user: User) {
+  storeUserDetails(user: User) {
     this.userDetails = user as User;
     this.UserSelectedStored.next(this.userDetails);
   }

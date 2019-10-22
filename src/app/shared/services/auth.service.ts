@@ -71,7 +71,11 @@ export class AuthService {
     }
 
     getJwtToken() {
-      return sessionStorage.getItem(this.jwt);
+      const tokenSession = sessionStorage.getItem(this.jwt);
+      if (tokenSession !== null) {
+        const token = tokenSession.slice(1, -1);
+        return token;
+      }
     }
 
     isLoggedIn() {

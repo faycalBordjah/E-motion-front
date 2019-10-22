@@ -60,7 +60,7 @@ export class VehicleService {
     return this.Vehicles.value;
   }
 
-  stroreVehicleDetails(vehicle: Vehicle) {
+  storeVehicleDetails(vehicle: Vehicle) {
     this.vehicleDetails = vehicle as Vehicle;
     this.VehicleSelectedStored.next(this.vehicleDetails);
   }
