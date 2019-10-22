@@ -1,0 +1,51 @@
+<div class="card">
+  <div class="card-header bg-info text-white">Détails de la location</div>
+  <div class="card-body">
+      <div class="row text-center">
+        <div class="col-12"> <h5>Descriptif</h5></div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="startDate"><u>Date de début</u> :</label></div>
+        <div class="col-7">{{rental.startDate | date:'shortDate':'+0200':'fr'}}</div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="endDate"><u>Date de fin</u> :</label></div>
+        <div class="col-7">{{rental.endDate | date:'shortDate':'+0200':'fr'}}</div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="startTime"><u>Heure de début</u> :</label></div>
+        <div class="col-7">{{rental.startTime}}</div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="endTime"><u>Heure de fin</u> :</label></div>
+        <div class="col-7">{{rental.endTime}}</div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="state"><u>Etat</u> :</label></div>
+        <div class="col-7">{{rental.state}}</div>
+      </div>
+      <hr>
+      <div class="row text-center">
+        <div class="col-12">
+          <h5>Utilisateur</h5></div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="user"><u>Dénomination</u> :</label></div>
+        <div class="col-7">{{rentalUser.firstName}} {{rentalUser.lastName}}</div>
+      </div>
+      <hr>
+      <div class="row text-center">
+        <div class="col-12">
+          <h5>Véhicule</h5></div>
+      </div>
+      <div class="row">
+        <div class="col-5"><label class="control-label" for="vehicle"><u>Immatriculation</u> :</label></div>
+        <div class="col-7">{{rentalVehicle.registering}}</div>
+      </div>
+  </div>
+  <div class="card-footer text-center">
+    <button type="button" class="btn btn-info btn-sm mr-2">
+       Mettre à jour le status de la location
+    </button>
+  </div>
+</div>

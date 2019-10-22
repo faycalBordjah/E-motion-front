@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Rental } from 'src/app/shared/models/rental';
+import { RentalService } from 'src/app/shared/services/rental.service';
 
 @Component({
   selector: 'app-manage-rentals',
@@ -10,37 +12,37 @@ export class ManageRentalsComponent implements OnInit {
   // locations: Location[];
   // id = 1;
 
-  features: any[];
+  featureAdd: any[];
+  rentals: Rental[];
+  rentalSelect;
 
-  constructor() { }
+  constructor(private rentalService: RentalService) {
+    this.rentalService.getAll().subscribe();
+    this.rentalService.rentals$.subscribe(rentals => {
+      if (rentals) {
+        this.rentals = rentals as Rental[];
+        console.log(this.rentals);
+      }
+    });
+
+    this.rentalService.rentalSelectedStored$.subscribe(rental => {
+      if (rental) {
+        this.rentalSelect = rental as Rental;
+        console.log(this.rentalSelect);
+      }
+    });
+
+
+   }
 
   ngOnInit() {
 
-    this.features = [
+    this.featureAdd = [
       {
-        title: 'Afficher la liste',
-        description: 'liste des locations',
-        icon: 'assets/img/icon-list.png',
-        route: '/manage/locations',
-      },
-      {
-        title: 'Ajouter un élément',
-        description: 'ajouter une location',
         icon: 'assets/img/icon-add.png',
         route: '/manage/location',
       },
     ];
-
-    /*this.locationsService.getAll(this.id).subscribe(data => {
-      if (data) {
-        this.locations = data.result as Location[];
-        console.log(this.locations);
-      }
-    },
-    (error) => {
-      this.errorService.handleError(error);
-    }
-    );*/
   }
 
 }
