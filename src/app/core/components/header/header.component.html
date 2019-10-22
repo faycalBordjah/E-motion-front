@@ -7,17 +7,15 @@
         <ul class="navbar-nav mr-auto">
           <li id="nav-accueil" class="nav-item pr-3">
               <button type="button" class="btn btn-light" *ngIf="role !== 'admin'" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</button>
-            <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
           </li>
           <li id="nav-location" class="nav-item pr-3">
               <button type="button" class="btn btn-light" *ngIf="role !== 'admin'" [routerLinkActive]="['active']" [routerLink]="'trouverlocation'">Location</button>
-            <!--<a class="nav-link" [routerLinkActive]="['active']" [routerLink]="'home'">Accueil</a>-->
           </li>
         </ul>
         <div id="nav-welcome" class="float-left pl-4" *ngIf="user && role === 'admin'">
           <div class="card badge badge-secondary">
             <div class="card-header bg-info text-white py-3" style="font-size:14px;">
-              <span>user_name // user las_name // connected as : user_role</span>
+              <span>Welcome to Administration page </span>
             </div>
           </div>
         </div>
