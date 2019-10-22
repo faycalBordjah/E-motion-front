@@ -18,6 +18,9 @@ export class VehicleService {
 
   private readonly Vehicles: BehaviorSubject<Vehicle[]>;
   public readonly vehicles$: Observable<Vehicle[]>;
+  private readonly VehicleSelectedStored: BehaviorSubject<Vehicle>;
+  public readonly vehicleSelectedStored$: Observable<Vehicle>;
+  private vehicleDetails: Vehicle;
   private listVehicles: Vehicle[];
 
   private headers = new HttpHeaders(
@@ -28,6 +31,8 @@ export class VehicleService {
   constructor(private http: HttpClient) {
     this.Vehicles = new BehaviorSubject<Vehicle[]>(this.listVehicles);
     this.vehicles$ = this.Vehicles.asObservable();
+    this.VehicleSelectedStored = new BehaviorSubject<Vehicle>(this.vehicleDetails);
+    this.vehicleSelectedStored$ = this.VehicleSelectedStored.asObservable();
    }
 
   getAll(): Observable<any> {
@@ -47,12 +52,16 @@ export class VehicleService {
   }
 
   storeVehiclesList(vehicles: Vehicle[]) {
-    console.log(vehicles);
     this.listVehicles = vehicles as Vehicle[];
     this.Vehicles.next(this.listVehicles);
   }
 
   public get currentVehiclesValue(): Vehicle[] {
     return this.Vehicles.value;
+  }
+
+  stroreVehicleDetails(vehicle: Vehicle) {
+    this.vehicleDetails = vehicle as Vehicle;
+    this.VehicleSelectedStored.next(this.vehicleDetails);
   }
 }

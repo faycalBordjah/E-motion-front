@@ -134,4 +134,8 @@ export class AuthService {
       this.User.next(val);
     }
 
+    public get currentRoleValue(): string {
+      return this.Role.value;
+    }
+
 }

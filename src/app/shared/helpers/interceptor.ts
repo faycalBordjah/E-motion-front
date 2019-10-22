@@ -1,6 +1,6 @@
 import {HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpErrorResponse} from '@angular/common/http';
 import {Observable} from 'rxjs/internal/Observable';
-import {Injectable} from '@angular/core';
+import {Injectable, ComponentFactoryResolver} from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { BehaviorSubject } from 'rxjs';
 
@@ -21,7 +21,7 @@ export class TokenInterceptor implements HttpInterceptor {
   private addToken(request: HttpRequest<any>, token: string) {
     return request.clone({
       setHeaders: {
-        Authorization: `Bearer ${token}`
+        Authorization: 'Bearer ' + token
       }
     });
   }
