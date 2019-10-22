@@ -3,14 +3,14 @@ import { User } from './user';
 
 export class Rental {
 
-  readonly locationId: string;
+  readonly id: string;
   startDate: number;
   endDate: number;
   startTime: number;
   endTime: number;
   readonly user: User;
   readonly vehicle: Vehicle;
-  state: string[];
+  status: string;
 
   constructor() {}
 }

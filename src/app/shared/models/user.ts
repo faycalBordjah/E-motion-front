@@ -2,7 +2,7 @@ import { Address } from './address';
 
 export class User {
 
-    readonly userId: string;
+    readonly id: string;
     firstName: string;
     lastName: string;
     birthDay: Date;

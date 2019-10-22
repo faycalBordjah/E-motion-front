@@ -1,5 +1,6 @@
 export class Address {
 
+  readonly id: string;
   number: number;
   street: string;
   city: string;
