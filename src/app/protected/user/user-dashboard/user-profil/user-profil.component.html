@@ -1,0 +1,109 @@
+<header class="bg-light pt-3 pb-md-3 px-3 px-lg-3 d-flex d-md-block align-items-center title border-bottom text-center">
+    <h4 class="mb-2 mr-auto mr-md-none bd-title">Détails du profil</h4>
+  </header>
+  <div class="container" style="padding:inherit;">
+      <div class="card">
+          <div class="card-header bg-info"></div>
+          <div class="card-body">
+              <div class="row text-center">
+                <div class="col-12"><h5>Dénomination</h5></div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="firstName"><u>Prénom</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.firstName" type="text" id="firstName" name="firstName" [ngModel]="user.firstName" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="lastName"><u>Nom</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.lastName" type="text" id="lastName" name="lastName" [ngModel]="user.lastName" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="birthDay"><u>Date de naissance</u> :</label></div>
+                <div class="col-7">
+                    <input #dp="bsDatepicker" bsDatepicker [bsConfig]="{ adaptivePosition: true, isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
+                    [bsValue]="user.birthDay"  id="birthDay" name="birthDay" [ngModel]="user.birthDay | date:'shortDate':'+0200':'fr'" required>        </div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="phone"><u>N° de téléphone</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.phone" type="text" id="phone" name="phone" [ngModel]="user.phone" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="permitNum"><u>N° de permit</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.permitNum" type="text" id="permitNum" name="permitNum" [ngModel]="user.permitNum" required>
+                </div>
+              </div>
+              <hr>
+              <div class="row text-center">
+                <div class="col-12">
+                  <h5>Identification</h5></div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="mail"><u>Email</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.mail" type="email" id="mail" name="mail" [ngModel]="user.mail" required>
+                </div>
+              </div>
+              <hr>
+              <div class="row text-center">
+                <div class="col-12">
+                  <h5>Addresse</h5></div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="number"><u>Numéro</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.address.number" type="text" id="number" name="number" [ngModel]="user.address.number" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="street"><u>Rue</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.address.street" type="text" id="street" name="street" [ngModel]="user.address.street" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="city"><u>Ville</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.address.city" type="text" id="city" name="city" [ngModel]="user.address.city" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="city"><u>state</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.address.state" type="text" id="state" name="state" [ngModel]="user.address.state" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-5"><label class="control-label" for="country"><u>Pays</u> :</label></div>
+                <div class="col-7">
+                    <input [value]="user.address.country" type="text" id="country" name="country" [ngModel]="user.address.country" required>
+                </div>
+              </div>
+              <hr>
+              <div class="row text-center">
+                  <div class="col-12">
+                    <h5>Edition</h5></div>
+                </div>
+              <div class="row">
+                <div class="col-6"><label class="control-label" for="creationDate"><u>Date de création</u> :</label></div>
+                <div class="col-6">
+                    <input [value]="user.creationDate" type="text" id="creationDate" name="creationDate"
+                    [ngModel]="user.creationDate | date:'shortDate':'+0200':'fr'" required readonly style="width:95%">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6"><label class="control-label" for="modificationDate"><u>Date de modification</u> :</label></div>
+                <div class="col-6">
+                    <input [value]="user.modificationDate" type="text" id="modificationDate" name="modificationDate"
+                    [ngModel]="user.modificationDate  | date:'shortDate':'+0200':'fr'" required readonly style="width:95%">
+                </div>
+              </div>
+          </div>
+          </div>
+  </div>
+
