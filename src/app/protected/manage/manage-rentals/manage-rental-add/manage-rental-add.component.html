@@ -2,12 +2,12 @@
   <h4 class="mb-2 mr-auto mr-md-none bd-title">Gestionnaire des Locations</h4>
 </header>
 <main role="main" class="mt-3">
-  <div class="card">
-        <app-rental-add></app-rental-add>
+
+        <app-rental-add [users]="users" [vehicles]="vehicles"></app-rental-add>
     <ng-template #loadingParams>
         <div class="m-4 alert alert-primary" role="alert">
           Chargement ...
         </div>
     </ng-template>
-  </div>
+
 </main>
