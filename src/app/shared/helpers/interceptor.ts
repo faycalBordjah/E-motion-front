@@ -14,7 +14,6 @@ export class TokenInterceptor implements HttpInterceptor {
     if (this.authService.getJwtToken()) {
       request = this.addToken(request, this.authService.getJwtToken());
     }
-
     return next.handle(request);
   }
 
@@ -22,6 +21,7 @@ export class TokenInterceptor implements HttpInterceptor {
     return request.clone({
       setHeaders: {
         Authorization: 'Bearer ' + token
+
       }
     });
   }
