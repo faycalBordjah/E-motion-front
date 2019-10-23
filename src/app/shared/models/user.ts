@@ -13,6 +13,8 @@ export class User {
     address: Address;
     creationDate: string;
     modificationDate: string;
+    token?: string;
+    role?: string;
 
     constructor() {
     }
