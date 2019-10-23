@@ -17,7 +17,6 @@
           <th class="col-sm-1">Disponible</th>
           <th class="col-sm-1">Nb place</th>
           <th class="col-sm-1">Etat</th>
-          <th class="col-sm-1">Supprimer</th>
         </tr>
       </thead>
       <tbody>
@@ -32,10 +31,6 @@
           <td>{{ v.available }}</td>
           <td>{{ v.placeNumber }}</td>
           <td>{{ v.state }}</td>
-          <td>
-            <ng-template #tipDel>Supprimer</ng-template>
-            <button class="btn btn-danger btnRounded" [tooltip]="tipDel" [delay]="500"><span class="far fa-trash-alt fa-lg"></span></button>
-          </td>
         </tr>
       </tbody>
     </table>
