@@ -51,6 +51,10 @@ export class VehicleService {
     return this.http.post<ApiResponse>(this.adminApi + '/vehicles', vehicle, {headers: this.headers});
   }
 
+  deleteVehicle(id: string): Observable<any> {
+    return this.http.delete<any>(this.adminApi + '/' + id, {headers: this.headers});
+  }
+
   storeVehiclesList(vehicles: Vehicle[]) {
     this.listVehicles = vehicles as Vehicle[];
     this.Vehicles.next(this.listVehicles);
