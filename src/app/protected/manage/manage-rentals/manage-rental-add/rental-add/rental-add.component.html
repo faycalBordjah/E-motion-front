@@ -1,1 +1,131 @@
-<p>rental-add works!</p>
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-body">
+        <div style="text-align:center">
+          <h2><u>Ajout d'une nouvelle location</u> :</h2>
+        </div>
+    </div>
+  </div>
+</div>
+<form #rentalForm="ngForm" (ngSubmit)="addRental(rentalForm.value)" class="bg-4">
+<div class="container p-4">
+    <div class="card">
+    <nav class="navbar navbar-expand navbar-light bg-light py-2 px-2 mb-02">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-rental-tab" data-toggle="tab" href="#nav-rental" role="tab" aria-controls="nav-home" aria-selected="true">Location</a>
+          <a class="nav-item nav-link" id="nav-user-tab" data-toggle="tab" href="#nav-user" role="tab" aria-controls="nav-profile" aria-selected="false">Utilisateur</a>
+          <a class="nav-item nav-link" id="nav-vehicle-tab" data-toggle="tab" href="#nav-vehicle" role="tab" aria-controls="nav-contact" aria-selected="false">Vehicule</a>
+          <a class="nav-item nav-link" *ngIf="rentalForm.form.valid" id="nav-vehicle-tab" data-toggle="tab" href="#nav-vehicle" role="tab" aria-controls="nav-contact" aria-selected="false">Valider</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-rental" role="tabpanel" aria-labelledby="nav-rental-tab">
+                <fieldset>
+                    <div class="card-header text-center">
+                        <legend>Renseignements principaux</legend>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-row justify-content-lg-center">
+                            <div class="form-group col-lg-2" id="divInit">
+                                <label class="control-label required" for="brand"><u>Marque</u> :</label>
+                                <input style="text-align:center" type="text" id="brand" name="brand" class="form-control" placeholder="Marque du véhicule" ngModel required>
+                            </div>
+                            <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                <label class="control-label required" for="model"><u>Modèle</u> :</label>
+                                <input style="text-align:center" type="text" id="model" name="model" class="form-control" placeholder="Modèle du véhicule" ngModel required>
+                            </div>
+                            <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                <label class="control-label required" for="type"><u>Type</u> :</label>
+                                <select class="form-control" id="type" name="type" style="text-align:center" ngModel required>
+                                  <option>VOITURE</option>
+                                  <option>SCOOTER</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                <label class="control-label required" for="category"><u>Catégorie</u> :</label>
+                                <input style="text-align:center" type="text" id="category" name="caterogy" class="form-control" placeholder="Catégorie du véhicule" ngModel required>
+                            </div>
+                            <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                <label class="control-label required" for="color"><u>Couleur</u> :</label>
+                                <input style="text-align:center" type="text" id="color" name="color" class="form-control" placeholder="Couleur du véhicule" ngModel required>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+              <div class="card">
+                  <fieldset>
+                      <div class="card-header text-center">
+                          <legend>Renseignements Complémentaires</legend>
+                      </div>
+                      <div class="card-body">
+                          <div class="form-row justify-content-lg-center">
+                              <div class="col col-lg-2"></div>
+                              <div class="form-group col-lg-2" id="divInit">
+                                  <label class="control-label required" for="placeNumber"><u>Nombre de place</u> :</label>
+                                  <input style="text-align:center" type="text" id="placeNumber" name="placeNumber"class="form-control" placeholder="Nombre de place du véhicule" ngModel required>
+                              </div>
+                              <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                  <label class="control-label required" for="registering"><u>Immatriculation</u> :</label>
+                                  <input style="text-align:center" type="text" id="registering" name="registering" class="form-control" placeholder="Immatriculation du véhicule" ngModel required>
+                              </div>
+                              <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                  <label class="control-label required" for="serialNumber"><u>Numéro de Série</u> :</label>
+                                  <input style="text-align:center" type="text" id="serialNumber" name="serialNumber" class="form-control" placeholder="Numéro de Série du véhicule" ngModel required>
+                              </div>
+                              <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                  <label class="control-label required" for="available"><u>Disponible</u> :</label>
+                                  <select class="form-control" id="available" name="available" style="text-align:center" ngModel required>
+                                    <option value="true">Oui</option>
+                                    <option value="false">Non</option>
+                                  </select>
+                              </div>
+                              <div class="col col-lg-2"></div>
+                          </div>
+                          <hr>
+                          <div class="form-row justify-content-lg-center">
+                              <div class="col col-lg-2"></div>
+                              <div class="form-group col-lg-2" id="divInit">
+                                    <label class="control-label required" for="purchaseDate"><u>Date d'achat</u> :</label>
+                                    <input class="form-control align-middle text-center" #dp="bsDatepicker" bsDatepicker [bsConfig]="{ adaptivePosition: true, isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
+                                      id="purchaseDate" name="purchaseDate" ngModel required>
+                              </div>
+                              <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                  <label class="control-label required" for="purchasePrice"><u>Prix d'achat</u> :</label>
+                                  <input style="text-align:center" type="text" id="purchasePrice" name="purchasePrice" class="form-control" placeholder="Prix d'achat du véhicule" ngModel required>
+                              </div>
+                              <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                  <label class="control-label required" for="kilometers"><u>Kilometres</u> :</label>
+                                  <input style="text-align:center" type="text" id="kilometers" name="kilometers" class="form-control" placeholder="Compteur kilométrique du véhicule" ngModel required>
+                              </div>
+                              <div class="form-group col-lg-2" id="divInit" style="border-left:1px solid rgba(0, 0, 0, 0.1)">
+                                  <label class="control-label required" for="state"><u>Etat</u> :</label>
+                                  <input style="text-align:center" type="text" id="state" name="state" class="form-control" placeholder="Etat du véhicule" ngModel required>
+                              </div>
+                              <div class="col col-lg-2"></div>
+                          </div>
+                      </div>
+                  </fieldset>
+                  </div>
+                </div>
+        <div class="tab-pane fade" id="nav-user" role="tabpanel" aria-labelledby="nav-user-tab">
+          <app-user-list [users]="users"></app-user-list>
+        </div>
+        <div class="tab-pane fade" id="nav-vehicle" role="tabpanel" aria-labelledby="nav-vehicle-tab">
+          <app-vehicle-list [vehicles]="vehicles"></app-vehicle-list>
+        </div>
+      </div>
+      </div>
+
+        <div class="card" *ngIf="vehicleForm.form.valid">
+            <fieldset>
+                <div class="card-footer">
+                    <div id="btn-clientUpdate">
+                        <span>
+                            <button type="submit" class="btn btn-outline-info" [disabled]="!vehicleForm.form.valid"><span class="far fa-edit fa-lg"></span>&nbsp; Soumettre</button>
+                        </span>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+</div>
+</form>

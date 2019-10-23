@@ -9,10 +9,9 @@
         <tr>
           <th class="col-sm-2">Nom</th>
           <th class="col-sm-2">Prenom</th>
-          <th class="col-sm-2">Email</th>
+          <th class="col-sm-3">Email</th>
           <th class="col-sm-2">Téléphone</th>
-          <th class="col-sm-2">Permit</th>
-          <th class="col-sm-2">Supprimer</th>
+          <th class="col-sm-3">Permit</th>
         </tr>
       </thead>
       <tbody>
@@ -22,9 +21,6 @@
           <td>{{ u.mail }}</td>
           <td>{{ u.phone }}</td>
           <td>{{ u.permitNum }}</td>
-          <td >
-            <ng-template #tipDel>Supprimer</ng-template>
-            <button class="btn btn-danger btnRounded" [tooltip]="tipDel" [delay]="500"><span class="far fa-trash-alt fa-lg"></span></button></td>
         </tr>
       </tbody>
     </table>

@@ -43,6 +43,14 @@ export class UserService {
     return this.http.get<any>(this.userApi + '/' + id, {headers: this.headers});
   }
 
+  addUser(user: any): Observable<any> {
+    return this.http.post<any>(this.userApi, user, {headers: this.headers});
+  }
+
+  deleteUser(id: string): Observable<any> {
+    return this.http.delete<any>(this.userApi + '/' + id, {headers: this.headers});
+  }
+
   storeUsersList(users: User[]) {
     console.log(users);
     this.listUsers = users as User[];

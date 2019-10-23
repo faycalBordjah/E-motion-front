@@ -8,60 +8,64 @@
           <div class="row">
             <div class="col-5"><label class="control-label" for="brand"><u>Marque</u> :</label></div>
             <div class="col-7">
-              <input [value]="vehicle.brand" type="text" id="vehicle.brand" name="vehicle.brand" [ngModel]="vehicle.brand" required>
+              <input [value]="vehicle.brand" type="text" id="brand" name="brand" [ngModel]="vehicle.brand" required>
             </div>
           </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="model"><u>Modèle</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.model" type="text" id="vehicle.model" name="vehicle.model" [ngModel]="vehicle.model" required>
+                <input [value]="vehicle.model" type="text" id="model" name="model" [ngModel]="vehicle.model" required>
             </div>
           </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="type"><u>Type</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.type" type="text" id="vehicle.type" name="vehicle.type" [ngModel]="vehicle.type" required></div>
+              <select [value]="vehicle.type" type="text" id="type" name="type" [ngModel]="vehicle.type" required style="width:96%;padding: inherit;">
+                <option>VOITURE</option>
+                <option>SCOOTER</option>
+              </select>
             </div>
+          </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="category"><u>Categorie</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.category" type="text" id="vehicle.category" name="vehicle.category" [ngModel]="vehicle.category" required>
+                <input [value]="vehicle.category" type="text" id="category" name="category" [ngModel]="vehicle.category" required>
             </div>
           </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="color"><u>Couleur</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.color" type="text" id="vehicle.color" name="vehicle.color" [ngModel]="vehicle.color" required>
+                <input [value]="vehicle.color" type="text" id="color" name="color" [ngModel]="vehicle.color" required>
             </div>
           </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="placeNumber"><u>Nb Place</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.placeNumber" type="text" id="vehicle.placeNumber" name="vehicle.placeNumber" [ngModel]="vehicle.placeNumber" required>
+                <input [value]="vehicle.placeNumber" type="text" id="placeNumber" name="placeNumber" [ngModel]="vehicle.placeNumber" required>
             </div>
           </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="kilometers"><u>Compteur Km</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.kilometers" type="text" id="vehicle.kilometers" name="vehicle.kilometers" [ngModel]="vehicle.kilometers" required>
+                <input [value]="vehicle.kilometers" type="text" id="vkilometers" name="kilometers" [ngModel]="vehicle.kilometers" required>
             </div>
           </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="available"><u>Disponible</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.available" type="text" id="vehicle.available" name="vehicle.available" [ngModel]="vehicle.available" required>
+                <input [value]="vehicle.available" type="text" id="available" name="available" [ngModel]="vehicle.available" required>
             </div>
           </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="purchasePrice"><u>Prix d'achat</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.purchasePrice" type="text" id="vehicle.purchasePrice" name="vehicle.purchasePrice" [ngModel]="vehicle.purchasePrice" required>
+                <input [value]="vehicle.purchasePrice" type="text" id="purchasePrice" name="purchasePrice" [ngModel]="vehicle.purchasePrice" required>
             </div>
           </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="state"><u>Etat</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.state" type="text" id="vehicle.state" name="vehicle.state" [ngModel]="vehicle.state" required>
+                <input [value]="vehicle.state" type="text" id="state" name="state" [ngModel]="vehicle.state" required>
             </div>
           </div>
           <hr>
@@ -71,13 +75,13 @@
           <div class="row">
             <div class="col-5"><label class="control-label" for="registering"><u>Immatriculation</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.registering" type="text" id="vehicle.registering" name="vehicle.registering" [ngModel]="vehicle.registering" required>
+                <input [value]="vehicle.registering" type="text" id="registering" name="registering" [ngModel]="vehicle.registering" required>
             </div>
           </div>
           <div class="row">
             <div class="col-5"><label class="control-label" for="serialNumber"><u>N° Série</u> :</label></div>
             <div class="col-7">
-                <input [value]="vehicle.serialNumber" type="text" id="vehicle.serialNumber" name="vehicle.serialNumber" [ngModel]="vehicle.serialNumber" required>
+                <input [value]="vehicle.serialNumber" type="text" id="serialNumber" name="serialNumber" [ngModel]="vehicle.serialNumber" required>
             </div>
           </div>
           <div class="row">
@@ -85,13 +89,49 @@
             <!--<div class="col-7">{{vehicle?.purchaseDate | date:'shortDate':'+0200':'fr'}}</div>-->
             <div class="col-7">
                 <input #dp="bsDatepicker" bsDatepicker [bsConfig]="{ adaptivePosition: true, isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
-                [bsValue]="vehicle.purchaseDate"  id="vehicle.purchaseDate" name="vehicle.purchaseDate" [ngModel]="vehicle.purchaseDate | date:'shortDate':'+0200':'fr'" required>
+                [bsValue]="vehicle.purchaseDate"  id="purchaseDate" name="purchaseDate" [ngModel]="vehicle.purchaseDate | date:'shortDate':'+0200':'fr'" required>
             </div>
           </div>
     </div>
     <div class="card-footer text-center">
-      <button type="submit" class="btn btn-info btn-sm mr-2">
-        <span class="far fa-edit fa-lg"></span>&nbsp; Mettre à jour la fiche du véhicule</button>
+      <button type="button" class="btn btn-info btn-sm mr-2" (click)="openModal(confirm)">
+        <span class="far fa-edit fa-lg"></span>&nbsp; Mettre à jour</button>
+      <button type="button" class="btn btn-danger btn-sm" (click)="openModal(delete)">
+        <span class="far fa-trash-alt fa-lg"></span>&nbsp; Supprimer</button>
     </div>
+    <ng-template #confirm>
+      <div class="modal-header bg-info text-white">
+        <h4 class="modal-title pull-left">Confirmation des modification du véhicule</h4>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <button type="button" class="btn btn-success btn-lg mr-2" (click)="updateVehicle(vehicleUpdateForm.value)">
+          <span class="fa fa-check" aria-hidden="true"></span>&nbsp; Valider
+        </button>
+        <button type="button" class="btn btn-danger btn-lg" (click)="modalRef.hide()">
+          <span class="fa fa-times" aria-hidden="true"></span>&nbsp; Annuler
+        </button>
+        </div>
+    </ng-template>
   </form>
   </div>
+  <ng-template #delete>
+    <div class="modal-header bg-info text-white">
+      <h4 class="modal-title pull-left">Confirmation de suppression du véhicule</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-center">
+      <button type="button" class="btn btn-success btn-lg mr-2" (click)="deleteVehicle()">
+        <span class="fa fa-check" aria-hidden="true"></span>&nbsp; Valider
+      </button>
+      <button type="button" class="btn btn-danger btn-lg" (click)="modalRef.hide()">
+        <span class="fa fa-times" aria-hidden="true"></span>&nbsp; Annuler
+      </button>
+      </div>
+  </ng-template>
+
+

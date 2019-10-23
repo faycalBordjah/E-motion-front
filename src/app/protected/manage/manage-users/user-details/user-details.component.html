@@ -8,31 +8,31 @@
       <div class="row">
         <div class="col-5"><label class="control-label" for="firstName"><u>Prénom</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.firstName" type="text" id="user.firstName" name="user.firstName" [ngModel]="user.firstName" required>
+            <input [value]="user.firstName" type="text" id="firstName" name="firstName" [ngModel]="user.firstName" required>
         </div>
       </div>
       <div class="row">
         <div class="col-5"><label class="control-label" for="lastName"><u>Nom</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.lastName" type="text" id="user.lastName" name="user.lastName" [ngModel]="user.lastName" required>
+            <input [value]="user.lastName" type="text" id="lastName" name="lastName" [ngModel]="user.lastName" required>
         </div>
       </div>
       <div class="row">
         <div class="col-5"><label class="control-label" for="birthDay"><u>Date de naissance</u> :</label></div>
         <div class="col-7">
             <input #dp="bsDatepicker" bsDatepicker [bsConfig]="{ adaptivePosition: true, isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
-            [bsValue]="user.birthDay"  id="vuser.birthDay" name="user.birthDay" [ngModel]="user.birthDay | date:'shortDate':'+0200':'fr'" required>        </div>
+            [bsValue]="user.birthDay"  id="birthDay" name="birthDay" [ngModel]="user.birthDay | date:'shortDate':'+0200':'fr'" required>        </div>
       </div>
       <div class="row">
         <div class="col-5"><label class="control-label" for="phone"><u>N° de téléphone</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.phone" type="text" id="user.phone" name="user.phone" [ngModel]="user.phone" required>
+            <input [value]="user.phone" type="text" id="phone" name="phone" [ngModel]="user.phone" required>
         </div>
       </div>
       <div class="row">
         <div class="col-5"><label class="control-label" for="permitNum"><u>N° de permit</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.permitNum" type="text" id="user.permitNum" name="user.permitNum" [ngModel]="user.permitNum" required>
+            <input [value]="user.permitNum" type="text" id="permitNum" name="permitNum" [ngModel]="user.permitNum" required>
         </div>
       </div>
       <hr>
@@ -43,7 +43,7 @@
       <div class="row">
         <div class="col-5"><label class="control-label" for="mail"><u>Email</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.mail" type="email" id="user.mail" name="user.mail" [ngModel]="user.mail" required>
+            <input [value]="user.mail" type="email" id="mail" name="mail" [ngModel]="user.mail" required>
         </div>
       </div>
       <hr>
@@ -54,31 +54,31 @@
       <div class="row">
         <div class="col-5"><label class="control-label" for="number"><u>Numéro</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.address.number" type="text" id="user.address.number" name="user.address.number" [ngModel]="user.address.number" required>
+            <input [value]="user.address.number" type="text" id="number" name="number" [ngModel]="user.address.number" required>
         </div>
       </div>
       <div class="row">
         <div class="col-5"><label class="control-label" for="street"><u>Rue</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.address.street" type="text" id="user.address.street" name="user.address.street" [ngModel]="user.address.street" required>
+            <input [value]="user.address.street" type="text" id="street" name="street" [ngModel]="user.address.street" required>
         </div>
       </div>
       <div class="row">
         <div class="col-5"><label class="control-label" for="city"><u>Ville</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.address.city" type="text" id="user.address.city" name="user.address.city" [ngModel]="user.address.city" required>
+            <input [value]="user.address.city" type="text" id="city" name="city" [ngModel]="user.address.city" required>
         </div>
       </div>
       <div class="row">
         <div class="col-5"><label class="control-label" for="city"><u>state</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.address.state" type="text" id="user.address.state" name="user.address.state" [ngModel]="user.address.state" required>
+            <input [value]="user.address.state" type="text" id="state" name="state" [ngModel]="user.address.state" required>
         </div>
       </div>
       <div class="row">
         <div class="col-5"><label class="control-label" for="country"><u>Pays</u> :</label></div>
         <div class="col-7">
-            <input [value]="user.address.country" type="text" id="user.address.country" name="user.address.country" [ngModel]="user.address.country" required>
+            <input [value]="user.address.country" type="text" id="country" name="country" [ngModel]="user.address.country" required>
         </div>
       </div>
       <hr>
@@ -89,21 +89,55 @@
       <div class="row">
         <div class="col-6"><label class="control-label" for="creationDate"><u>Date de création</u> :</label></div>
         <div class="col-6">
-            <input [value]="user.creationDate" type="text" id="user.creationDate" name="user.creationDate"
+            <input [value]="user.creationDate" type="text" id="creationDate" name="creationDate"
             [ngModel]="user.creationDate | date:'shortDate':'+0200':'fr'" required readonly style="width:95%">
         </div>
       </div>
       <div class="row">
         <div class="col-6"><label class="control-label" for="modificationDate"><u>Date de modification</u> :</label></div>
         <div class="col-6">
-            <input [value]="user.modificationDate" type="text" id="user.modificationDate" name="user.modificationDate"
+            <input [value]="user.modificationDate" type="text" id="modificationDate" name="modificationDate"
             [ngModel]="user.modificationDate  | date:'shortDate':'+0200':'fr'" required readonly style="width:95%">
         </div>
       </div>
   </div>
   <div class="card-footer text-center">
-    <button type="submit" class="btn btn-info btn-sm mr-2">
-        <span class="far fa-edit fa-lg"></span>&nbsp; Mettre à jour la fiche de l'utililsateur</button>
+      <button type="button" class="btn btn-info btn-sm mr-2" (click)="openModal(confirm)">
+          <span class="far fa-edit fa-lg"></span>&nbsp; Mettre à jour</button>
+      <button type="button" class="btn btn-danger btn-sm mr-2" (click)="openModal(delete)">
+        <span class="far fa-trash-alt fa-lg"></span>&nbsp; Supprimer</button>
   </div>
   </div>
+  <ng-template #confirm>
+    <div class="modal-header bg-info text-white">
+      <h4 class="modal-title pull-left">Confirmation des modification de l'utilisateur</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body text-center">
+      <button type="button" class="btn btn-success btn-lg mr-2" (click)="updateUser(userUpdateForm.value)">
+        <span class="fa fa-check" aria-hidden="true"></span>&nbsp; Valider
+      </button>
+      <button type="button" class="btn btn-danger btn-lg" (click)="modalRef.hide()">
+        <span class="fa fa-times" aria-hidden="true"></span>&nbsp; Annuler
+      </button>
+      </div>
+  </ng-template>
 </form>
+<ng-template #delete>
+  <div class="modal-header bg-info text-white">
+    <h4 class="modal-title pull-left">Confirmation de suppression de l'utilisatseur</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body text-center">
+    <button type="button" class="btn btn-success btn-lg mr-2" (click)="deleteUser()">
+      <span class="fa fa-check" aria-hidden="true"></span>&nbsp; Valider
+    </button>
+    <button type="button" class="btn btn-danger btn-lg" (click)="modalRef.hide()">
+      <span class="fa fa-times" aria-hidden="true"></span>&nbsp; Annuler
+    </button>
+    </div>
+</ng-template>

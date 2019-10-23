@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, TemplateRef } from '@angular/core';
 import { Vehicle } from 'src/app/shared/models/vehicle';
 import { NgForm } from '@angular/forms';
 import { VehicleService } from 'src/app/shared/services/vehicle.service';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-vehicle-details',
@@ -13,11 +14,15 @@ export class VehicleDetailsComponent implements OnInit {
   @Input()
   vehicle: Vehicle;
 
-  vehicleTmp: Vehicle;
+  modalRef: BsModalRef;
+
+  config = {
+    keyboard: true
+  };
 
   @ViewChild('vehicleUpdateForm', {static: false}) vehicleUpdateForm: NgForm;
 
-  constructor(private vehicleService: VehicleService) {
+  constructor(private vehicleService: VehicleService, private modalService: BsModalService) {
   }
 
   ngOnInit() {
@@ -28,9 +33,15 @@ export class VehicleDetailsComponent implements OnInit {
     console.log(form);
   }
 
-  checkIfModified(form: NgForm) {
-    console.log(form.statusChanges);
+  openModal(confirm: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(confirm, this.config);
+  }
 
+  deleteVehicle(): void {
+    const vehicleId = this.vehicle.id.valueOf();
+    this.vehicleService.deleteVehicle(vehicleId).subscribe(data => {
+      console.log(data);
+    });
   }
 
 }

@@ -13,7 +13,6 @@
             <th class="col-sm-2">Heure fin</th>
             <th class="col-sm-2">Utilisateur</th>
             <th class="col-sm-2">Véhicule</th>
-            <th class="col-sm">Supprimer</th>
           </tr>
         </thead>
         <tbody>
@@ -24,9 +23,6 @@
             <td>{{ l.endTime }}</td>
             <td>{{ l.user.firstName }} {{l.user.lastName}}</td>
             <td>{{ l.vehicle.serialNumber }}</td>
-            <td >
-                <ng-template #tipDel>Supprimer</ng-template>
-                <button class="btn btn-danger btnRounded" [tooltip]="tipDel" [delay]="500"><span class="far fa-trash-alt fa-lg"></span></button></td>
           </tr>
         </tbody>
       </table>

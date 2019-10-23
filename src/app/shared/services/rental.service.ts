@@ -24,6 +24,7 @@ export class RentalService {
     'Content-Type': 'application/json',
   });
 
+
   constructor(private http: HttpClient) {
     this.Rentals = new BehaviorSubject<Rental[]>(this.listRentals);
     this.rentals$ = this.Rentals.asObservable();
@@ -42,6 +43,14 @@ export class RentalService {
   getAll(user$: number): Observable<any> {
     return this.http.get<any>(this.apiLocation + '/' + user$, {headers: this.headers});
   }*/
+
+  addRental(rental: any): Observable<any> {
+    return this.http.post<any>(this.apiLocation, rental, {headers: this.headers});
+  }
+
+  updateRentalStatus(id: string, status: any): Observable<any> {
+    return this.http.put<any>(this.apiLocation + '/' + id, status, {headers: this.headers});
+  }
 
   storeRentalsList(rentals: Rental[]) {
     console.log(rentals);
