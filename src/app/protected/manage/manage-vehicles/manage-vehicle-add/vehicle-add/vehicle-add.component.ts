@@ -25,10 +25,7 @@ export class VehicleAddComponent implements OnInit {
   addVehicle(form: NgForm) {
     this.vehicleService.addVehicle(form).subscribe(
         (data) => {
-            console.log(data);
-            // this.authService.storeJwtToken(data.result.token);
-            // this.vehicleForm.reset();
-            // this.router.navigate(['vehicules']);
+                this.router.navigate(['/manage/vehicules']);
         },
         (error) => {
             console.error(error);
