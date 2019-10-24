@@ -7,6 +7,7 @@ import { HomeLocationFormComponent } from './home-carousel/home-location-form/ho
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { frLocale } from 'ngx-bootstrap/locale';
 import { AvailableVehiclesComponent } from './home-carousel/available-vehicles/available-vehicles.component';
+import {RouterModule} from '@angular/router';
 defineLocale('fr', frLocale);
 
 @NgModule({
@@ -17,8 +18,9 @@ defineLocale('fr', frLocale);
     HomeLocationFormComponent,
     AvailableVehiclesComponent
   ],
-  imports: [
-    SharedModule
-  ]
+    imports: [
+        SharedModule,
+        RouterModule
+    ]
 })
 export class HomeModule { }

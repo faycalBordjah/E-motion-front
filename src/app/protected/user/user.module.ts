@@ -15,7 +15,7 @@ import { LocationListComponent } from './user-dashboard/location-list/location-l
     UserProfilComponent,
     UserLocationsComponent,
     LocationDetailsComponent,
-    LocationListComponent
+    LocationListComponent,
   ],
   imports: [
     SharedModule,

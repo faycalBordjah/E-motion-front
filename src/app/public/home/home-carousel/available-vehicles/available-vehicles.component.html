@@ -1,11 +1,16 @@
 <table class="table table-bordered table-striped table-hover" style="text-align: center;">
-    <td *ngFor="let v of vehicles">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="../../../../../assets/img/004.jpg" alt="Card image cap">
+    <td *ngFor="let v of vehicles ; let i = index">
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" [src]="'../../../../../assets/img/'+i+'.jpg'" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">{{v.brand}}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">
+                        <label><strong>Couleur:  </strong> </label><i>{{v.color}}</i><br>
+                        <label><strong>Prix:  </strong></label><i>{{v.purchasePrice}} EUR</i><br>
+                        <label><strong>Nbre de Place:  </strong></label><i>{{v.placeNumber}}</i><br>
+                        <label><strong>Kilométrage:  </strong></label><i>{{v.kilometers}} KM</i><br>
+                    </p>
+                    <button type="button" class="btn">Reserve</button>
                 </div>
             </div>
     </td>
