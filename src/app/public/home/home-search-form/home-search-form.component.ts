@@ -3,11 +3,11 @@ import { NgForm } from '@angular/forms';
 import { RentalService } from 'src/app/shared/services/rental.service';
 
 @Component({
-  selector: 'app-home-location-form',
-  templateUrl: './home-location-form.component.html',
-  styleUrls: ['./home-location-form.component.scss']
+  selector: 'app-home-search-form',
+  templateUrl: './home-search-form.component.html',
+  styleUrls: ['./home-search-form.component.scss']
 })
-export class HomeLocationFormComponent implements OnInit {
+export class HomeSearchFormComponent implements OnInit {
 
   currentDate: Date;
 
@@ -20,7 +20,11 @@ export class HomeLocationFormComponent implements OnInit {
   ngOnInit() {
   }
 
-  SearchLocation(form: NgForm) {
+  SearchLocationDate(form: NgForm) {
+    console.log(form);
+  }
+
+  SearchLocationDateTime(form: NgForm) {
     console.log(form);
   }
 

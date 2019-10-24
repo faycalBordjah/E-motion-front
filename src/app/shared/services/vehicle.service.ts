@@ -51,6 +51,10 @@ export class VehicleService {
     return this.http.post<ApiResponse>(this.adminApi + '/vehicles', vehicle, {headers: this.headers});
   }
 
+  updateVehicle(id: string, vehicle: any): Observable<any> {
+    return this.http.put<any>(this.adminApi + '/' + id, {headers: this.headers}, vehicle);
+  }
+
   deleteVehicle(id: string): Observable<any> {
     return this.http.delete<any>(this.adminApi + '/' + id, {headers: this.headers});
   }

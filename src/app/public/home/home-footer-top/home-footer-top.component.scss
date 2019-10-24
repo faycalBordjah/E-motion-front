@@ -1,0 +1,45 @@
+.footer-top {
+  background-image: linear-gradient(43deg, #FF9933, #FCC31E, #CCFF33, #99FF00);
+}
+
+.icon.lock-icon {
+  background: url(../../../../assets/img/lock-icon.png) no-repeat center;
+  width: 100%;
+  display: block;
+  height: 86px;
+}
+
+.icon.marker-icon {
+  background: url(../../../../assets/img/marker-icon.png) no-repeat center;
+  width: 100%;
+  display: block;
+  height: 86px;
+}
+
+.icon.phone-icon {
+  background: url(../../../../assets/img/phone-icon.png) no-repeat center;
+  width: 100%;
+  display: block;
+  height: 86px;
+}
+
+.title {
+  display: block;
+  margin: 25px 0;
+  font-size: 20px;
+  font-size: 26.03px;
+  line-height: 26px;
+  line-height: 33px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000059;
+  font-family: MuseoSansRounded-700;
+}
+
+.text {
+  color: #000059;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: MuseoSans-300;
+}

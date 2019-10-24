@@ -3,6 +3,7 @@ import { HomeModule } from './home/home.module';
 import { SharedModule } from '../shared/shared.module';
 import { PublicRoutingModule } from './public-routing.module';
 import { ConnexionModule } from './connexion/connexion.module';
+import { RentalModule } from './rental/rental.module';
 
 @NgModule({
   declarations: [],
@@ -11,6 +12,7 @@ import { ConnexionModule } from './connexion/connexion.module';
     PublicRoutingModule,
     HomeModule,
     ConnexionModule,
+    RentalModule,
   ]
 })
 export class PublicModule { }

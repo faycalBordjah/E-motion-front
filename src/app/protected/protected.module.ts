@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
-import { BillModule } from './bill/bill.module';
+import { RentalModule } from './rental/rental.module';
 import { ProtectedRoutingModule } from './protected-routing.module';
 import { ManageModule } from './manage/manage.module';
 import { UserModule } from './user/user.module';
@@ -11,7 +11,7 @@ import { UserModule } from './user/user.module';
     SharedModule,
     ProtectedRoutingModule,
     ManageModule,
-    BillModule,
+    RentalModule,
     UserModule,
   ]
 })

@@ -29,8 +29,12 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   updateVehicle(form: NgForm) {
-    //this.vehicleService.update(form);
+    const vehicleId = this.vehicle.id;
     console.log(form);
+    this.vehicleService.updateVehicle(vehicleId, form).subscribe(data => {
+      console.log(data);
+    }
+    );
   }
 
   openModal(confirm: TemplateRef<any>) {

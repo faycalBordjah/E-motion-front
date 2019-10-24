@@ -2,7 +2,7 @@ import { Role } from './role';
 
 export class LoginResponse {
 
-  currentUserId: string;
+  sub: string;
   roles: Role;
   iat: string;
   exp: string;

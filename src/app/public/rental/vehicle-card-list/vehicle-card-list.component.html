@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row w-100 mx-auto">
+    <div class="col-md-4 py-3 my-2" *ngFor="let v of vehicles, let i = index">
+        <div class="card">
+          <div class="card-header">
+            <div class="column">
+              <div class="row">
+                  <span class="float-left">{{v.category}}</span>
+              </div>
+              <div class="row">
+                  <span class="float-left">{{v.brand}}</span>
+              </div>
+              <div class="row">
+                  <span class="float-left">{{v.model}}</span>
+              </div>
+            </div>
+          </div>
+          <img class="card-img-top img-fluid" src="https://images.freeimages.com/images/large-previews/85a/daisy-s-1375598.jpg" width="70"
+            height="70" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title">{{v.brand}}</h4>
+            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little
+              bit longer.</p>
+              {{v.model}}
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+          <div class="card-footer text-center">
+              <button type="button" class="btn btn-bg mr-2">
+                <span class="far fa-edit fa-lg"></span>&nbsp; Voir la fiche</button>
+              <button type="button" class="btn btn-primary btn-bg ml-2">
+                <span class="far fa-trash-alt fa-lg"></span>&nbsp; Réserver</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+

@@ -15,29 +15,35 @@ export class ManageVehiclesComponent implements OnInit {
   vehicleSelect;
 
   constructor(private vehicleService: VehicleService) {
-    this.vehicleService.getAll().subscribe();
+    this.fetchVehicleListFromStore();
+    this.fetchVehicleSelectedFromStore();
+   }
+
+  ngOnInit() {
+    this.featureAdd = [
+      {
+        icon: 'assets/img/icon-add.png',
+        route: '/manage/vehicule',
+      }];
+  }
+
+  fetchVehicleListFromStore() {
     this.vehicleService.vehicles$.subscribe(vehicles => {
       if (vehicles) {
         this.vehicles = vehicles as Vehicle[];
         console.log(this.vehicles);
       }
     });
+  }
+
+  fetchVehicleSelectedFromStore() {
     this.vehicleService.vehicleSelectedStored$.subscribe(vehicle => {
       if (vehicle) {
         this.vehicleSelect = vehicle as Vehicle;
         console.log(this.vehicleSelect);
       }
     });
-   }
-
-  ngOnInit() {
-
-    this.featureAdd = [
-      {
-        icon: 'assets/img/icon-add.png',
-        route: '/manage/vehicule',
-      },
-    ];
   }
+
 }
 

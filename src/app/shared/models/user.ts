@@ -1,4 +1,5 @@
 import { Address } from './address';
+import { Role } from './role';
 
 export class User {
 
@@ -14,7 +15,7 @@ export class User {
     creationDate: string;
     modificationDate: string;
     token?: string;
-    role?: string;
+    roles: Role[];
 
     constructor() {
     }

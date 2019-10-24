@@ -1,0 +1,22 @@
+.input {
+  width: 100%;
+}
+
+.card, .navbar, .nav-tabs, .nav-link.active {
+  background-color:transparent !important;
+}
+
+.card, .navbar {
+  box-shadow: none !important;
+}
+
+.timepicker{
+  display: inline-table;
+  margin: 0 auto 0 auto;
+}
+
+input.form-control::placeholder{
+  color: white !important;
+}
+
+

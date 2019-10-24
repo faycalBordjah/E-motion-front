@@ -1,0 +1,23 @@
+<nav *ngIf="this.user?.roles[0].authority === 'ADMIN_ROLE'" class="navbar navbar-expand navbar-light bg-light py-0 px-0 mb-0 text-center" style="justify-content:center">
+  <div class="py-3 px-3 pr-3 pl-3">
+    <span class="navbar-text text-black">
+        <ul class="navbar-nav mr-auto">
+          <li id="nav-accueil" class="nav-item pr-3">
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'/home'">Accueil</button>
+          </li>
+          <li id="nav-gestion" class="nav-item pr-3">
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'/manage'">Gestion</button>
+          </li>
+          <li id="nav-dashboard" class="nav-item pr-3">
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'dashboard'">Dashboard</button>
+          </li>
+          <li id="nav-profil" class="nav-item pr-3">
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'detailsprofil'">Profil</button>
+          </li>
+          <li id="nav-location" class="nav-item pr-3">
+              <button type="button" class="btn btn-light" [routerLinkActive]="['active']" [routerLink]="'listelocations'">Historique</button>
+          </li>
+        </ul>
+    </span>
+  </div>
+</nav>

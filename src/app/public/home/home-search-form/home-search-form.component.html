@@ -1,0 +1,79 @@
+<p class="h4 font-weight-normal">
+    Cherchez un vehicule
+</p>
+<div class="container pr-4 pl-4 pb-4 pt-0 sm-2">
+    <div class="card">
+    <nav class="navbar navbar-expand navbar-light bg-light py-2 px-2 mb-02 justify-content-center">
+        <div class="nav nav-tabs text-center" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" id="nav-date-tab" data-toggle="tab" href="#nav-date" role="tab" aria-controls="nav-date" aria-selected="true">Par date</a>
+          <a class="nav-item nav-link" id="nav-dateTime-tab" data-toggle="tab" href="#nav-dateTime" role="tab" aria-controls="nav-dateTime" aria-selected="false">Par date et heure</a>
+        </div>
+      </nav>
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-date" role="tabpanel" aria-labelledby="nav-date-tab">
+            <div class="card xs-4">
+                <form #searchDateForm="ngForm" (ngSubmit)="SearchLocationDate(searchDateForm.value)">
+                  <div class="card-body pt-2">
+                      <div class="column text-center text-dark">
+                        <div class="row">
+                          <div class="col-6"><label class="control-label" for="startDate"><u id="startDate">Date de début</u> :</label></div>
+                          <div class="col-6"><label class="control-label" for="startTime"><u id="startTime">Date de fin</u> :</label></div>
+                        </div>
+                        <div class="row">
+                          <div class="col-6">
+                              <input #dp="bsDatepicker" bsDatepicker [bsConfig]="{ adaptivePosition: true, isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
+                              [bsValue]="currentDate | date:'shortDate':'+0200':'fr'"  id="startDate" name="startDate" ngModel required>
+                          </div>
+                          <div class="col-6">
+                              <input #dp="bsDatepicker" bsDatepicker [bsConfig]="{ adaptivePosition: true, isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
+                              [bsValue]="currentDate | date:'shortTime'"  id="endDate" name="endDate" ngModel required>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="card-footer text-center font-weight-light">
+                      <button type="submit" class="btn btn-success btn-lg mr-2">
+                          <span class="fa fa-search" aria-hidden="true"></span>&nbsp; Rechercher</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+        <div class="tab-pane fade" id="nav-dateTime" role="tabpanel" aria-labelledby="nav-dateTime-tab">
+            <div class="card bg-4" style="background-color:transparent;">
+                <form #searchDateTimeForm="ngForm" (ngSubmit)="SearchLocationDateTime(searchDateTimeForm.value)">
+                  <div class="card-body">
+                      <div class="column text-center justify-content-center">
+                        <div class="row text-white">
+                          <div class="col-3"><label class="control-label" for="startDate"><u id="startDate">Date de début</u> :</label></div>
+                          <div class="col-3"><label class="control-label" for="endDate"><u id="endDate">Heure de début</u> :</label></div>
+                          <div class="col-3"><label class="control-label" for="startTime"><u id="startTime">Date de fin</u> :</label></div>
+                          <div class="col-3"><label class="control-label" for="endTime"><u id="endTime">Heure de fin</u> :</label></div>
+                        </div>
+                        <div class="row text-dark">
+                          <div class="col-3">
+                              <input #dp="bsDatepicker" bsDatepicker [bsConfig]="{ adaptivePosition: true, isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
+                              [bsValue]="currentDate | date:'shortDate':'+0200':'fr'"  id="startDate" name="startDate" ngModel required>
+                          </div>
+                          <div class="col-3">
+                              <timepicker class="timepicker text-white" [arrowkeys]="true" [showMeridian]="false"></timepicker>
+                          </div>
+                          <div class="col-3">
+                              <input #dp="bsDatepicker" bsDatepicker [bsConfig]="{ adaptivePosition: true, isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }"
+                              [bsValue]="currentDate"  id="startTime" name="startTime" ngModel required>
+                          </div>
+                          <div class="col-3">
+                              <timepicker class="timepicker text-white" [arrowkeys]="true" [showMeridian]="false"></timepicker>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <div class="card-footer text-center font-weight-light">
+                      <button type="submit" class="btn btn-success btn-lg mr-2">
+                          <span class="fa fa-search" aria-hidden="true"></span>&nbsp; Rechercher</button>
+                  </div>
+                </form>
+              </div>
+        </div>
+      </div>
+      </div>
+</div>

@@ -24,7 +24,8 @@ export class HeaderComponent {
     @Input()
     urlLogo: string;
 
-    constructor(private authService: AuthService, private router: Router) {}
+    constructor(private authService: AuthService, private router: Router) {
+    }
 
     toggleNavbar() {
         this.navbarOpen = !this.navbarOpen;
@@ -32,8 +33,6 @@ export class HeaderComponent {
 
     logOut() {
       this.authService.logout();
-      const currentUrl = this.router.url;
-      console.log(currentUrl);
       this.router.navigate(['/home']);
   }
 
