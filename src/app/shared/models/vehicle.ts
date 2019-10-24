@@ -13,7 +13,6 @@ export class Vehicle {
   purchasePrice: number;
   placeNumber: number;
   kilometers: number;
-  state: string[];
 
   constructor() {}
 }

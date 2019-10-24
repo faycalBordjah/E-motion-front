@@ -48,7 +48,7 @@ export class VehicleService {
 
   addVehicle(vehicle: any): Observable<ApiResponse> {
     console.log('service vehicule add : ' + JSON.stringify(vehicle));
-    return this.http.post<ApiResponse>(this.adminApi + '/vehicles', vehicle, {headers: this.headers});
+    return this.http.post<ApiResponse>(this.adminApi , vehicle, {headers: this.headers});
   }
 
   deleteVehicle(id: string): Observable<any> {
