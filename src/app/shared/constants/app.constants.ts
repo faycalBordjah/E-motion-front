@@ -36,6 +36,10 @@ export class AppConstants {
       return this.baseUrl + '/admin/locations';
     }
 
+    public static get api_user_locations(): string {
+        return this.baseUrl + '/user/locations';
+    }
+
     public static get api_location_url(): string {
         return this.baseUrl + '/locations';
     }

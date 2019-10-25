@@ -95,16 +95,32 @@
                 <div class="form-group col-md-4">
                     <label for="inputCity">Ville</label>
                     <input type="text" required class="form-control" id="inputCity" placeholder="Paris, Lyon"
-                           formControlName="town" [ngClass]="{ 'is-invalid': submitted && getFields.town.errors }">
-                    <div *ngIf="submitted && getFields.town.errors" class="invalid-feedback">
-                        <div *ngIf="getFields.town.errors.required">Obligatoire</div>
+                           formControlName="city" [ngClass]="{ 'is-invalid': submitted && getFields.city.errors }">
+                    <div *ngIf="submitted && getFields.city.errors" class="invalid-feedback">
+                        <div *ngIf="getFields.city.errors.required">Obligatoire</div>
                     </div>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="inputZip">Code Postale</label>
+                    <label for="inputCity">Region</label>
+                    <input type="text" required class="form-control" id="inputState" placeholder="Région"
+                           formControlName="state" [ngClass]="{ 'is-invalid': submitted && getFields.state.errors }">
+                    <div *ngIf="submitted && getFields.state.errors" class="invalid-feedback">
+                        <div *ngIf="getFields.state.errors.required">Obligatoire</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputZip">Region</label>
                     <input type="text" required class="form-control" id="inputZip" placeholder="75000"
-                           formControlName="zipCode" [ngClass]="{ 'is-invalid': submitted && getFields.zipCode.errors }">
-                    <div *ngIf="submitted && getFields.zipCode.errors" class="invalid-feedback">
+                           formControlName="zip" [ngClass]="{ 'is-invalid': submitted && getFields.zip.errors }">
+                    <div *ngIf="submitted && getFields.zip.errors" class="invalid-feedback">
+                        <div *ngIf="getFields.zip.errors.required">Obligatoire</div>
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputZip">Pays</label>
+                    <input type="text" required class="form-control" id="inputCountry" placeholder="France"
+                           formControlName="country" [ngClass]="{ 'is-invalid': submitted && getFields.country.errors }">
+                    <div *ngIf="submitted && getFields.country.errors" class="invalid-feedback">
                         <div *ngIf="getFields.zipCode.errors.required">Obligatoire</div>
                     </div>
                 </div>

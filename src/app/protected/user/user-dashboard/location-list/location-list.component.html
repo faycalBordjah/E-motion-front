@@ -1,1 +1,26 @@
-<p>location-list works!</p>
+<div class="card-header text-center">
+    <h3>Inventaire des Locations</h3>
+</div>
+<div class="card-body">
+    <div class="panel panel-primary">
+        <!--<div class="panel-heading"><h3 class="panel-title">List Clients</h3></div>-->
+        <table class="table table-bordered table-striped" style="text-align: center;">
+            <thead class="thead-dark">
+            <tr>
+                <th class="col-sm-2">Date debut</th>
+                <th class="col-sm-2">Date fin</th>
+                <th class="col-sm-2">Heure debut</th>
+                <th class="col-sm-2">Heure fin</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let location of locations;">
+                <td>{{ location.startDate }}</td>
+                <td>{{ location.endDate }}</td>
+                <td>{{ location.startTime }}</td>
+                <td>{{ location.endTime }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
