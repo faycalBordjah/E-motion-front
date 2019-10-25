@@ -5,7 +5,9 @@ import {UserService} from '../../../shared/services/user.service';
 import {AlertService} from '../../../shared/services/alert.service';
 import {Router} from '@angular/router';
 import {first} from 'rxjs/operators';
-import { LoginPayLoad } from '../../../shared/models/loginPayLoad';
+import {LoginPayLoad} from '../../../shared/models/loginPayLoad';
+import {Address} from '../../../shared/models/address';
+import {User} from '../../../shared/models/user';
 
 @Component({
     selector: 'app-register-form',
@@ -17,7 +19,7 @@ export class RegisterFormComponent implements OnInit {
     private submitted = false;
     private loading = false;
 
-    payload: LoginPayLoad = new LoginPayLoad();
+    payload: User = new User();
 
     constructor(private formBuilder: FormBuilder,
                 private authService: AuthService,
@@ -37,8 +39,10 @@ export class RegisterFormComponent implements OnInit {
             permitNum: ['', Validators.required],
             roadNumber: ['', Validators.required],
             street: ['', Validators.required],
-            town: ['', Validators.required],
-            zipCode: ['', Validators.required],
+            city: ['', Validators.required],
+            state: ['', Validators.required],
+            zip: ['', Validators.required],
+            country: ['', Validators.required]
         });
     }
 
@@ -51,25 +55,27 @@ export class RegisterFormComponent implements OnInit {
         if (this.registerForm.invalid) {
             return;
         }
+        this.payload.address = new Address(this.getFields.roadNumber.value, this.getFields.street.value, this.getFields.city.value,
+            this.getFields.state.value, this.getFields.zip.value, this.getFields.country.value
+        );
         this.payload.mail = this.registerForm.controls.mail.value;
         this.payload.password = this.registerForm.controls.password.value;
+        this.payload.firstName = this.getFields.firstName.value;
+        this.payload.lastName = this.getFields.lastName.value;
+        this.payload.birthDay = this.getFields.birthDay.value;
+        this.payload.phone = this.getFields.phone.value;
+        this.payload.permitNum = this.getFields.permitNum.value;
         this.alertService.clear();
         this.loading = true;
-        console.log(this.registerForm.controls);
-        this.LogAndAuthenticate(this.payload);
-    }
-
-    LogAndAuthenticate(loadUser: LoginPayLoad) {
-      this.authService.register(this.registerForm.value).subscribe(
-        () => {
-          this.authService.authenticate(loadUser);
-          this.alertService.success('Registration successful', true);
-          this.router.navigate(['home']);
-        },
-        (error) => {
-            this.alertService.error(error);
-            this.loading = false;
-        });
+        this.authService.register(this.payload).subscribe(
+            () => {
+                this.alertService.success('Registration successful', true);
+                this.router.navigate(['home']);
+            },
+            (error) => {
+                this.alertService.error(error);
+                this.loading = false;
+            });
     }
 
 }
