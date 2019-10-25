@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user.component';
 import { UserProfilComponent } from './user-dashboard/user-profil/user-profil.component';
 import { LocationDetailsComponent } from './user-dashboard/location-details/location-details.component';
+import {LocationListComponent} from './user-dashboard/location-list/location-list.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,9 @@ const routes: Routes = [
       {
         path: 'detailslocation',
         component: LocationDetailsComponent
+      },      {
+        path: 'listelocations',
+        component: LocationListComponent
       },
       {
         path: '',
